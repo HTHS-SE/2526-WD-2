@@ -1,0 +1,34 @@
+/* Base Fonts */
+
+html {
+    font-size: 12px;
+}
+
+header {
+    font-family: 'Libre Caslon Display', serif;
+    font-size: calc(80/12)rem;
+}
+
+p {
+    font-family: 'Times New Roman', serif;
+    font-size: 1rem;
+}
+
+.subheader {
+    font-family: 'Playfair Display', serif;
+    font-size: calc(25/12)rem;
+}
+
+nav {
+    font-family: 'DM Sans', sans-serif;
+    font-size: calc(20/12)rem;
+}
+
+/* Base Colors */
+
+:root {
+    --color-accent: #ff5757;
+    --color-light: #ffffff;
+    --color-dark: #000000;
+}
+
