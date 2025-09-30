@@ -24,6 +24,13 @@ nav {
     font-size: calc(20/12)rem;
 }
 
+.nbMenuItem{
+    color: #ffffff;
+}
+.nb-background-color{
+    background-color: #1a1919;
+}
+
 /* Base Colors */
 
 :root {
