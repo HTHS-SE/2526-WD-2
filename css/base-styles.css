@@ -55,7 +55,6 @@ nav {
 
 .footer-text {
     font-family: 'Public Sans', sans-serif;
-<<<<<<< HEAD
     font-size: calc(20/12)rem;
 }
 
@@ -71,7 +70,9 @@ h4 {
 
 .public-sans {
     font-family: 'Public Sans', sans-serif;
-=======
-    font-size: calc(20/12 * 1rem);
->>>>>>> e1654dee038aa53536b7dd96098e6b4f3f0b43cd
+}
+
+.rotation:hover {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
 }
