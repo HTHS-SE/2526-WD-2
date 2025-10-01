@@ -39,6 +39,12 @@ nav {
     height: auto;
 }
 
+/* Index */
+.cover-img{
+    max-width: 100%;
+    height: auto;
+}
+
 /* Base Colors */
 
 :root {
