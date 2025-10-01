@@ -6,7 +6,7 @@ html {
 
 header {
     font-family: 'Libre Caslon Display', serif;
-    font-size: calc(80/12)rem;
+    font-size: calc(80/12 * 1rem);
 }
 
 p {
@@ -16,19 +16,27 @@ p {
 
 .subheader {
     font-family: 'Playfair Display', serif;
-    font-size: calc(25/12)rem;
+    font-size: calc(25/12 * 1rem);
 }
 
+/* Navbar */
 nav {
     font-family: 'DM Sans', sans-serif;
-    font-size: calc(20/12)rem;
+    font-size: calc(18/12 * 1rem);
 }
-
 .nbMenuItem{
     color: #ffffff;
+    font-weight: 600;
 }
 .nb-background-color{
     background-color: #1a1919;
+}
+.container-fluid{
+    padding: 0px;
+}
+.website-logo{
+    max-width: 70px;
+    height: auto;
 }
 
 /* Base Colors */
@@ -41,6 +49,7 @@ nav {
 
 .footer-text {
     font-family: 'Public Sans', sans-serif;
+<<<<<<< HEAD
     font-size: calc(20/12)rem;
 }
 
@@ -56,4 +65,7 @@ h4 {
 
 .public-sans {
     font-family: 'Public Sans', sans-serif;
+=======
+    font-size: calc(20/12 * 1rem);
+>>>>>>> e1654dee038aa53536b7dd96098e6b4f3f0b43cd
 }
