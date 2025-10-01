@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
                 crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/base-styles.css">
     
     <!-- Importing Google Fonts-->
 
@@ -37,17 +38,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">
+                    <!--Website Icon-->
+                    <img src="img/website-logo.png" class="d-inline-block align-text-top w-50 website-logo">
+                    <!--Homepage Link-->
+                    <a href="index.html" class="nav-link nbMenuItem">Home</a>
+                </a>
 
-    </nav>
+                <!--Hamburger Menu Button-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Collapsible navbar menu with custom hover-->
+                <div class="collapse navbar-collapse" id="navmenu">
+
+                    <!--Links to hamburger menu button-->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="artists.html" class="nav-link nbMenuItem">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="gallery.html" class="nav-link nbMenuItem">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="timeline.html" class="nav-link nbMenuItem">Timeline</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
     <!-- Title-->
-    <header class="bg-light text-dark text-start py-5 mb-4">
+    <header class="text-dark text-start py-5 mb-4">
         <div class="container">
             <h1 class="fw-bolder">Gallery</h1>
             <p class="lead subheader"><em>A curated selection of Impressionist artworks</em></p>
         </div>
-        <hr><br>
+        <hr>
     </header>
 
     <!-- Gallery Section-->
@@ -55,7 +86,24 @@
         <div class="row g-4">
             <!-- Gallery Item 1-->
             <div class="col-md-4">
-                <img src="img/placeholder-image.jpg" class="img-fluid rounded" alt="Artwork 1">
+                <div class="position-relative d-inline-block">
+                    <img src="img/placeholder-image.jpg" class="img-fluid rounded" alt="Artwork 1">
+                    <i class="bi bi-plus-circle-fill fs-3 position-absolute bottom-0 end-0 m-2 cursor-point rotation" role="button" data-bs-toggle="modal" data-bs-target="#infoModal"></i>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark text-light">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Artwork Title, Year</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>This is some extra information about the artwork. It pops up when you click the image.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h5 class="mt-2">ARTIST NAME</h5>
                 <h4 class="mt-1 mb-3"><span class="fw-bolder">Painting Title</span>, <em>date</em></h4>
                 <div class="text-muted bg-dark text-light rounded-pill p-2 d-inline-block align-items-center"><p class="text-light mb-0 public-sans"><span class="fw-bolder">Medium</span>     Watercolor</p></div>
