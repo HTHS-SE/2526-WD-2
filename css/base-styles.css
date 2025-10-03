@@ -43,6 +43,10 @@ nav {
 .cover-img{
     max-width: 100%;
     height: auto;
+    z-index: 1;
+}
+.cover-text{
+    z-index: 2;
 }
 
 /* Base Colors */
