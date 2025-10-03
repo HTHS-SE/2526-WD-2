@@ -114,3 +114,9 @@ h4 {
 h1 {
     font-size: calc(100/12 * 1rem);
 }
+
+.gallery-height {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
