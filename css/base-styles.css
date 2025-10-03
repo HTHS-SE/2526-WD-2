@@ -80,3 +80,7 @@ h4 {
     transform: rotate(90deg);
     transition: transform 0.3s ease;
 }
+
+h1 {
+    font-size: calc(100/12 * 1rem);
+}

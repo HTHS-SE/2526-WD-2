@@ -38,19 +38,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container-lg">
+       <div class="container-fluid">
         <!--Navbar-->
-        <nav></nav>
+        <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">
+                    <!--Website Icon-->
+                    <img src="img/website-logo.png" class="d-inline-block align-text-top w-50 website-logo">
+                    <!--Homepage Link-->
+                    <a href="index.html" class="nav-link nbMenuItem">Home</a>
+                </a>
+
+                <!--Hamburger Menu Button-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Collapsible navbar menu with custom hover-->
+                <div class="collapse navbar-collapse" id="navmenu">
+
+                    <!--Links to hamburger menu button-->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="artists.html" class="nav-link nbMenuItem">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="gallery.html" class="nav-link nbMenuItem">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="timeline.html" class="nav-link nbMenuItem">Timeline</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </div>
+
+    <!-- Title-->
+        <header class="text-dark text-start py-5 mb-4">
+            <div class="container">
+                <h1 class="fw-bolder">Artists</h1>
+                <p class="lead subheader"><em>Getting to know Impressionist artists</em></p>
+            </div>
+         <hr>
+        </header>
 
     <!-- Artist Cards-->
         <section class="artists">
             <div class="container">
-                <!--Cards organized in-->
-                <div class="row row-cols-3 row-cols-md-8 g-4 card-rounded">
-                    <div class="col">
-                        <div class="card about">
+                <!--Cards organized-->
+                <div class="row row-cols-2 row-cols-md-3 g-5 card-rounded">
+                    <div class="col"> <!--Card 1-->
+                        <div class="card border-dark" style="height: 600px;">
                             <img src="img/placeholder-image.jpg" class="card-img" alt="Picure of artist">
                             <div class="card-body">
                                 <h1 class="card-title">Artist Name</h1>
@@ -58,10 +97,21 @@
                                 <p class="card-text">Information about the artist
                                 </p>
                             </div>
+                            <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" 
+                            aria-controls="offcanvasBottom">Learn More</button>
+                            <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                                <div class="offcanvas-header">
+                                     <h5 class="offcanvas-title" id="offcanvasBottom">Backdrop with scrolling</h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <p>Information about artist</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card about">
+                    <div class="col"> <!--Card 2-->
+                        <div class="card border-dark" style="height: 600px;">
                             <img src="img/placeholder-image.jpg" class="card-img" alt="Picure of artist">
                             <div class="card-body">
                                 <h1 class="card-title">Artist Name</h1>
@@ -69,10 +119,32 @@
                                 <p class="card-text">Information about the artist
                                 </p>
                             </div>
+                            <!--Button trigger for modal-->
+                            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#artistModal">
+                                Learn More
+                            </button>
+                            <!--Modal-->
+                            <div class="modal fade" id="artistModal" tabindex="-1" aria-labelledby="IDK">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-1">Artist Name</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum nibh feugiat lectus congue pharetra vitae vitae massa. Mauris at erat metus. Integer vehicula justo id lacus molestie, vitae sagittis ligula vehicula. Nunc eget laoreet justo. Nam nibh eros, sagittis eu luctus quis, cursus ac odio. Sed nisl mi, posuere in eleifend vel, vestibulum non neque. Curabitur elementum commodo ipsum porta condimentum. Vivamus egestas eleifend viverra. Curabitur vulputate ullamcorper tincidunt. Ut dictum, tellus id convallis mollis, sem odio congue eros, sit amet mollis nunc turpis ut augue. Donec elementum libero quis elit finibus, non molestie odio auctor.</p>
+                                        <img src="img/placeholder-image.jpg" alt="Artist Image" width="100px">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> <!--Closing tag for row-->
-            </div> <!--Closing tag for container-->
+                </div>
+            </div>
         </section>
         <br><br>
         
