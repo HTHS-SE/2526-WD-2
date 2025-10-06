@@ -148,13 +148,13 @@ body {
     z-index: 1029;
 }
 
-
 .progress-bar-scroll {
     height: 4px;
     width: 0%;
     background-color: var(--color-accent);
     transition: width 0.1s ease-out;
 }
+<<<<<<< HEAD
 
 .nav-link:hover {
     color: var(--color-accent);
@@ -171,3 +171,5 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     transform: translateY(-5px);
 }
+=======
+>>>>>>> a8d508c3ccaf632a983b351806d2c060c2e22b4a
