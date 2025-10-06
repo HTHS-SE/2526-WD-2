@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
                 crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/base-styles.css">
     
     <!-- Importing Google Fonts-->
 
@@ -37,7 +38,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <!--Website Icon-->
+                <img src="img/website-logo.png" class="d-inline-block align-text-top w-50 website-logo">
+                <!--Homepage Link-->
+                <a href="index.html" class="nav-link nbMenuItem">Home</a>
+            </a>
+
+            <!--Hamburger Menu Button-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Collapsible navbar menu with custom hover-->
+            <div class="collapse navbar-collapse" id="navmenu">
+
+                <!--Links to hamburger menu button-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="artists.html" class="nav-link nbMenuItem">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link nbMenuItem">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="timeline.html" class="nav-link nbMenuItem">Timeline</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="scrollProgressBar"></div>
+    </div>
     
+
     <footer class="footer bg-dark p-5 text-white text-start position-relative">
         <div class="container">
             <p class="mb-0 lead footer-text">&copy; 2025 An Overview of Impressionism. Contact Us: 908-xxx-xxxx randomemail@gmail.com 
@@ -46,5 +85,19 @@
             <a href="#" class="text-white position-absolute bottom-0 end-0 p-5"><i class="bi bi-palette h2"></i></a>
         </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.onscroll = function() {
+        const scrollProgress = document.getElementById("scrollProgressBar");
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        scrollProgress.style.width = scrollPercent + "%";
+    };
+    </script>
 </body>
 </html>
