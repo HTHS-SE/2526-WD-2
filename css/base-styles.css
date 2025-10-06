@@ -120,3 +120,7 @@ h1 {
     width: 100%;
     object-fit: cover;
 }
+
+.accent-color {
+    color: var(--color-accent);
+}
