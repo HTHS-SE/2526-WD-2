@@ -59,6 +59,25 @@ nav {
     margin-top: 525px;
     margin-left: 48px;
 }
+.quote{
+    background-color: #1a1919;
+}
+.quote-text{
+    color: white;
+    font-family: "Public Sans";
+    font-size: 2rem;
+}
+.quote-author{
+    color: white;
+    font-family: "Playfair Display";
+    font-size: 2rem;
+}
+.quote-img{
+    height: 40px;
+    width: auto;
+    margin-left: 30px;
+    margin-top: 10px;
+}
 
 /* Base Colors */
 
