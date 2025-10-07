@@ -177,6 +177,9 @@ body {
     border-color: var(--color-accent);
 }
 
+.card{
+    overflow:hidden;
+}
 .card-spacing{
     /* I am still confused on how to do this*/
 }

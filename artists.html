@@ -89,13 +89,13 @@
         </header>
 
     <!-- Artist Cards-->
-        <section class="artists">
-            <div class="container">
+        <section class="artists p-2">
+            <div class="container d-flex">
                 <!--Cards organized-->
-                <div class="row row-cols-2 row-cols-md-2 g-5 card-rounded justify-content-center">
+                <div class="row row-cols-1 row-cols-md-2 g-5 card-rounded justify-content-center">
                     <div class="col"> <!--Card 1 Modal-->
-                        <div class="card border-dark card-spacing" style="height: 850px; width:450px;">
-                            <img src="img/claudemonet-self.jpg" class="card-img" alt="Picture of Claude Monet" height="475px">
+                        <div class="card border-dark" style="height: 850px; width:450px;">
+                            <img src="img/claudemonet-self.jpg" class="card-img-top" alt="Picture of Claude Monet" height="475px">
                             <div class="card-body">
                                 <h2 class="card-heading">Claude Monet</h2>
                                 <h3 class="card-year">1840-1926</h3><br>
@@ -133,7 +133,6 @@
                                                 inspired. Paintings such as the Water Lilies, the Houses of Parliament, Mornings on the Seine, and more. In 1923, 
                                                 cataracts started to form on Monet’s eyes. This impacted the hues and colors of the paintings. Monet ended 
                                                 up passing away on December 5th 1926 due to lung cancer. </p>
-                                            
                                         <img src="img/placeholder-image.jpg" alt="Artist Image" width="100px">
                                         </div>
                                         <div class="modal-footer">
@@ -146,7 +145,7 @@
                     </div>
                     <div class="col"> <!--Card 2 Modal-->
                         <div class="card border-dark" style="height: 850px; width:450px;">
-                            <img src="img/pissarro-self.jpg" class="card-img" alt="Picture of Camille Pissarro" height="475px">
+                            <img src="img/pissarro-self.jpg" class="card-img-top" alt="Picture of Camille Pissarro" height="475px">
                             <div class="card-body">
                                 <h2 class="card-heading">Camille Pissarro</h2>
                                 <h3 class="card-year">1830-1903</h3><br>
@@ -181,7 +180,6 @@
                                                 artists, including Pierre-Auguste Renoir. </p>
                                             <p class="modal-text">Pissarro played a crucial role in developing Impressionist techniques and theories. He passed away on
                                                 November 13 1909. </p>
-                                        <img src="img/placeholder-image.jpg" alt="Artist Image" width="100px">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -193,7 +191,7 @@
                     </div>
                     <div class="col"> <!--Card 3-->
                         <div class="card border-dark" style="height: 850px; width:450px;">
-                            <img src="img/renoir-self.jpg" class="card-img" alt="Picture of Pierre August Renoir" height="475px">
+                            <img src="img/renoir-self.jpg" class="card-img-top" alt="Picture of Pierre August Renoir" height="475px">
                             <div class="card-body">
                                 <h2 class="card-heading">Pierre Auguste Renior</h2>
                                 <h3 class="card-year">1830-1903</h3><br>
@@ -216,7 +214,40 @@
                                             <p class="modal-text"></p>
                                             <p class="modal-text"></p>
                                             <p class="modal-text"></p>
-                                        <img src="img/placeholder-image.jpg" alt="Artist Image" width="100px">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"> <!--Card 4-->
+                        <div class="card border-dark" style="height: 850px; width:450px;">
+                            <img src="img/sisley-self.jpg" class="card-img-top" alt="Picture of Pierre August Renoir" height="475px">
+                            <div class="card-body">
+                                <h2 class="card-heading">Alfred Sisley</h2>
+                                <h3 class="card-year">1830-1903</h3><br>
+                                <p class="card-text"></p>
+                            </div>
+                            <!--Button trigger for modal-->
+                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal4">
+                                Learn More
+                            </button>
+                            <!--Modal-->
+                            <div class="modal fade" id="artistModal4" tabindex="-1" aria-labelledby="IDK">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-1">Alfred Sisley</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
