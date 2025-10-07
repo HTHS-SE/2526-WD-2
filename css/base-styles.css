@@ -128,6 +128,7 @@ h1 {
 body {
     padding-top: 35px;
 }
+
 /* Scroll Progress Bar */
 
 .navbar {
@@ -154,13 +155,11 @@ body {
     background-color: var(--color-accent);
     transition: width 0.1s ease-out;
 }
-<<<<<<< HEAD
 
 .nav-link:hover {
     color: var(--color-accent);
     transition: color 0.3s ease;
 }
-
 
 .gallery-item {
     padding: 10px;
@@ -171,5 +170,26 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     transform: translateY(-5px);
 }
-=======
->>>>>>> a8d508c3ccaf632a983b351806d2c060c2e22b4a
+
+/* Artists page */
+.background-color{
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.card-spacing{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.card-heading{
+    font-size: calc(40/12 * 1rem);
+}
+
+.card-text{
+    font-size: calc(18/12 * 1rem);
+}
+
+.card-year{
+    font-size: calc(28/12 * 1rem);
+}
