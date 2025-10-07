@@ -166,8 +166,8 @@ body {
     border-radius: 5px;
 }
 
-.modal-img {
-    width: 1000px;
+.gallery-modal-img {
+    max-width: 80%;
     height: auto;
 }
 
@@ -176,3 +176,7 @@ body {
     font-family: 'Libre Caslon Display', serif;
 }
 
+.modal-text {
+    font-size: 1.4rem;
+    text-indent: 20px;
+}
