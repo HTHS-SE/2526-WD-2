@@ -166,7 +166,13 @@ body {
     border-radius: 5px;
 }
 
-.gallery-item:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    transform: translateY(-5px);
+.modal-img {
+    width: 1000px;
+    height: auto;
 }
+
+.modal-title {
+    font-size: 2rem;
+    font-family: 'Libre Caslon Display', serif;
+}
+
