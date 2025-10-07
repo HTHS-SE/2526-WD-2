@@ -105,7 +105,7 @@
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body text-center">
-                                <img src="img/gallery-img/alle-of-chestnut-trees-sisley.jpeg" class="img-fluid rounded square-gallery-modal-img" alt="Painting: Allée of Chestnut Trees">
+                                <img src="img/gallery-img/alle-of-chestnut-trees-sisley.jpeg" id="myimage" class="img-fluid rounded square-gallery-modal-img" alt="Painting: Allée of Chestnut Trees">
                                 <br><br>
                                 <div class="text-start ms-3">
                                     <p class="modal-text">  Allée of Chestnut Trees by Alfred Sisley is a serene Impressionist landscape that captures a quiet, tree-lined path bathed in natural light. Painted in 1878, it reflects Sisley’s signature focus on atmosphere, subtle color harmonies, and the fleeting effects of light and weather. The composition draws the viewer’s eye down the central avenue, creating a sense of calm depth and balance. Through delicate brushwork and gentle tones, Sisley conveys both the tranquility and vitality of the French countryside.</p>
@@ -465,5 +465,8 @@
         scrollProgress.style.width = scrollPercent + "%";
     };
   </script>
+    <script src="magnify.js">
+        magnify("myimage", 3);
+    </script>
 </body>
 </html>
