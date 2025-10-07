@@ -78,6 +78,16 @@ nav {
     margin-left: 30px;
     margin-top: 10px;
 }
+.overview-heading {
+    font-family: 'Libre Caslon Display', serif;
+    color: black;
+    font-size: 4rem;
+}
+.overview-text {
+    font-family: "Public Sans";
+    font-size: 1.5rem;
+    color: black;
+}
 
 /* Base Colors */
 
