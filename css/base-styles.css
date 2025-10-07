@@ -49,15 +49,12 @@ nav {
     z-index: 2;
     color: white;
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-left: 48px;
+    font-size: clamp(2.5rem, 3vw, 3vw);
 }
 .cover-title{
     font-family: 'Libre Caslon Display', serif;
     color: white;
-    font-size: 9rem;
-    margin-top: 525px;
-    margin-left: 48px;
+    font-size: clamp(4rem, 9vw, 9vw);
 }
 .quote{
     background-color: #1a1919;
