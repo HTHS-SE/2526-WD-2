@@ -89,23 +89,23 @@
         </header>
 
     <!-- Artist Cards-->
-        <section class="artists">
-            <div class="container">
+        <section class="artists p-2">
+            <div class="container d-flex">
                 <!--Cards organized-->
-                <div class="row row-cols-2 row-cols-md-3 g-5 card-rounded">
-                    <div class="col"> <!--Card 1 Offcanvas-->
-                        <div class="card border-dark" style="height: 700px;">
-                            <img src="img/claudemonet-self.jpg" class="card-img" alt="Picture of Claude Monet" height="450px">
+                <div class="row row-cols-1 row-cols-md-2 g-5 card-rounded justify-content-center">
+                    <div class="col"> <!--Card 1 Modal-->
+                        <div class="card border-dark" style="height: 850px; width:450px;">
+                            <img src="img/claudemonet-self.jpg" class="card-img-top" alt="Picture of Claude Monet" height="475px">
                             <div class="card-body">
-                                <h2 class="card-title">Claude Monet</h2>
-                                <h3 class="card-title">1840-1926</h3>
+                                <h2 class="card-heading">Claude Monet</h2>
+                                <h3 class="card-year">1840-1926</h3><br>
                                 <p class="card-text"> Claude Monet was a French painter during the Impressionist movement. Some of his famous paintings 
                                     include: Impression, Sunrise; The Water Lily Pond; Woman with a Parasol, Garden at Sainte-Adresse. The term impressionism 
                                     is based on his painting Impression, Sunrise.
                                 </p>
                             </div>
                             <!--Button trigger for modal-->
-                            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#artistModal">
+                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal">
                                 Learn More
                             </button>
                             <!--Modal-->
@@ -117,23 +117,22 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Oscar-Claude Monet was born in November 1840 in Paris, France. Despite his father wanting 
+                                            <p class="modal-text">Oscar-Claude Monet was born in November 1840 in Paris, France. Despite his father wanting 
                                                 him to be a part of the family grocery store business, Monet aspired to be an artist at a 
                                                 young age. He attended Le Havre secondary school of the arts at the age of 10. 6 years later, his 
                                                 mom died and he moved in with his aunt.</p>
-                                            <p>When Monet was 21, he joined the First Regiment of African Light Cavalry in Algeria. His aunt 
+                                            <p class="modal-text">When Monet was 21, he joined the First Regiment of African Light Cavalry in Algeria. His aunt 
                                                 pressured him to end his service and complete an art course at a university. There, he became a 
                                                 student of Charles Gleyre and met many other famous artists. They include Pierre-Auguste Renoir, 
                                                 Alfred Sisley, and Frédéric Bazille.  All of the aspiring artists shared a new approach for art. </p>
-                                            <p>The Franco-Prussian war broke out which impacted the lives of many artists such as Monet. He and his wife 
+                                            <p class="modal-text">The Franco-Prussian war broke out which impacted the lives of many artists such as Monet. He and his wife 
                                                 at the time ended up taking refuge in England, where he studied the works of others. However, his most 
                                                 popular paintings were created around the time of when his wife died in 1879.
                                             </p>
-                                            <p>Around 13 years later, he married Alicia Hoschede. Their family moved to Giverny, France where Monet felt very 
+                                            <p class="modal-text">Around 13 years later, he married Alicia Hoschede. Their family moved to Giverny, France where Monet felt very 
                                                 inspired. Paintings such as the Water Lilies, the Houses of Parliament, Mornings on the Seine, and more. In 1923, 
                                                 cataracts started to form on Monet’s eyes. This impacted the hues and colors of the paintings. Monet ended 
                                                 up passing away on December 5th 1926 due to lung cancer. </p>
-                                            
                                         <img src="img/placeholder-image.jpg" alt="Artist Image" width="100px">
                                         </div>
                                         <div class="modal-footer">
@@ -145,29 +144,110 @@
                         </div>
                     </div>
                     <div class="col"> <!--Card 2 Modal-->
-                        <div class="card border-dark" style="height: 700px;">
-                            <img src="img/camillepissarro-self.jpg" class="card-img" alt="Picture of Camille Pissarro" height="450 px">
+                        <div class="card border-dark" style="height: 850px; width:450px;">
+                            <img src="img/pissarro-self.jpg" class="card-img-top" alt="Picture of Camille Pissarro" height="475px">
                             <div class="card-body">
-                                <h2 class="card-title">Camille Pissarro</h2>
-                                <h3 class="card-title">1830-1903</h3>
-                                <p class="card-text">Information about the artist
+                                <h2 class="card-heading">Camille Pissarro</h2>
+                                <h3 class="card-year">1830-1903</h3><br>
+                                <p class="card-text">Camille Pissarro was a pivotal figure in the Impressionist movement. His works 
+                                    were known for their depictions of everyday life and landscape. Pissarro’s art pieces include The 
+                                    Crystal Palace, The Boulevard Montmartre at Night, the Apple Harvest, etc.
                                 </p>
                             </div>
                             <!--Button trigger for modal-->
-                            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#artistModal">
+                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal2">
                                 Learn More
                             </button>
                             <!--Modal-->
-                            <div class="modal fade" id="artistModal" tabindex="-1" aria-labelledby="IDK">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content modal-lg">
+                            <div class="modal fade" id="artistModal2" tabindex="-1" aria-labelledby="IDK">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-1">Camille Pissarro</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p></p>
-                                        <img src="img/placeholder-image.jpg" alt="Artist Image" width="100px">
+                                            <p class="modal-text">Camille Pissarro was born on July 10 1830 in the US Virgin Islands. He lived in St. Thomas 
+                                                until he was 12 years old and then went to boarding school in Paris for a little bit. Ever 
+                                                since Pissarro was young, he drew in his free time. A Danish painter, Fritz Melbye, inspired 
+                                                Pissarro to paint full time. He became both his teacher and his friend. When Pissarro was 25, 
+                                                he went to Paris again to study under more artists. </p>
+                                            <p class="modal-text">Pissarro married Julie Vellay and had 8 children, 6 of them ended up becoming painters. During 
+                                                the Franco-Prussian War, their family had to flee France. They took refuge in Westow Hill, London. 
+                                                Here, Pissarro continued to create oil paintings. The paintings depicted scenery from Central London.</p>
+                                            <p class="modal-text">In 1890, Pissarro returned back to France. His work focused on rural and urban French life. It contained 
+                                                scenes from everyday life and landscapes. It is also interesting to note  He also mentored many known 
+                                                artists, including Pierre-Auguste Renoir. </p>
+                                            <p class="modal-text">Pissarro played a crucial role in developing Impressionist techniques and theories. He passed away on
+                                                November 13 1909. </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"> <!--Card 3-->
+                        <div class="card border-dark" style="height: 850px; width:450px;">
+                            <img src="img/renoir-self.jpg" class="card-img-top" alt="Picture of Pierre August Renoir" height="475px">
+                            <div class="card-body">
+                                <h2 class="card-heading">Pierre Auguste Renior</h2>
+                                <h3 class="card-year">1830-1903</h3><br>
+                                <p class="card-text"></p>
+                            </div>
+                            <!--Button trigger for modal-->
+                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal3">
+                                Learn More
+                            </button>
+                            <!--Modal-->
+                            <div class="modal fade" id="artistModal3" tabindex="-1" aria-labelledby="IDK">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-1">Pierre Auguste Renior</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"> <!--Card 4-->
+                        <div class="card border-dark" style="height: 850px; width:450px;">
+                            <img src="img/sisley-self.jpg" class="card-img-top" alt="Picture of Pierre August Renoir" height="475px">
+                            <div class="card-body">
+                                <h2 class="card-heading">Alfred Sisley</h2>
+                                <h3 class="card-year">1830-1903</h3><br>
+                                <p class="card-text"></p>
+                            </div>
+                            <!--Button trigger for modal-->
+                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal4">
+                                Learn More
+                            </button>
+                            <!--Modal-->
+                            <div class="modal fade" id="artistModal4" tabindex="-1" aria-labelledby="IDK">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-1">Alfred Sisley</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
+                                            <p class="modal-text"></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
