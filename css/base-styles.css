@@ -178,8 +178,7 @@ body {
 }
 
 .card-spacing{
-    padding-left: 10px;
-    padding-right: 10px;
+    /* I am still confused on how to do this*/
 }
 
 .card-heading{
@@ -193,3 +192,8 @@ body {
 .card-year{
     font-size: calc(28/12 * 1rem);
 }
+
+.modal-text{
+    font-size: calc(18/12 * 1rem);
+}
+
