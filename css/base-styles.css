@@ -176,8 +176,18 @@ body {
     border-radius: 5px;
 }
 
-.gallery-modal-img {
+.square-gallery-modal-img {
     max-width: 80%;
+    height: auto;
+}
+
+.vertical-gallery-modal-img {
+    max-width: 50%;
+    height: auto;
+}
+
+.horizontal-gallery-modal-img {
+    max-width: 100%;
     height: auto;
 }
 
@@ -190,3 +200,4 @@ body {
     font-size: 1.4rem;
     text-indent: 20px;
 }
+
