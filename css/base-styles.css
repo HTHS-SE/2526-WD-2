@@ -136,6 +136,7 @@ h1 {
 body {
     padding-top: 35px;
 }
+
 /* Scroll Progress Bar */
 
 .navbar {
@@ -167,7 +168,6 @@ body {
     color: var(--color-accent);
     transition: color 0.3s ease;
 }
-
 
 .gallery-item {
     padding: 10px;
