@@ -67,6 +67,7 @@ nav {
 .quote-text{
     color: white;
     font-family: "Public Sans";
+    font-style: Light 300;
     font-size: 2rem;
 }
 .quote-author{
