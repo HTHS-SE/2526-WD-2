@@ -169,10 +169,14 @@ body {
     transition: color 0.3s ease;
 }
 
+
+/* Gallery Styles */
 .gallery-item {
     padding: 10px;
     border-radius: 5px;
 }
+
+/* Modal Styles */
 
 .square-gallery-modal-img {
     max-width: 80%;
@@ -202,6 +206,8 @@ body {
     text-indent: 20px;
 }
 
+
+/* Image Magnifier Glass */
 .img-magnifier-container {
     position: relative;
 }
@@ -219,7 +225,96 @@ body {
 
 * {  box-sizing: border-box;}
 
+
+/* Card Component */
 .card {
     max-width: 450px;
     margin: 0 auto;
+}
+
+/* Timeline */
+
+/* Vertical line */
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px; /* Thickness of the line */
+    background-color: #dee2e6; /* Color of the line */
+    left: 50%;
+    margin-left: -1.5px; /* Half of the width to center it */
+}
+
+/* Timeline items */
+.timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+    width: 50%; /* Each item takes half the width */
+}
+
+/* Positioning left and right items */
+.timeline-item.left {
+    left: 0;
+    padding-right: 30px; /* Space for the line and indicator */
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 30px; /* Space for the line and indicator */
+}
+
+/* Content box styling */
+.timeline-content {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+}
+
+/* Circles or indicators on the line */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-accent); /* Indicator color */
+    border-radius: 50%;
+    border: 3px solid white;
+    top: 0;
+    z-index: 1; /* Ensure it's above the line */
+}
+
+.timeline-item.left::after {
+    right: -10px; /* Position relative to the left item */
+}
+
+.timeline-item.right::after {
+    left: -10px; /* Position relative to the right item */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px; /* Adjust line position for smaller screens */
+        margin-left: 0;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px; /* Space for the line and indicator */
+        padding-right: 0;
+        left: 0; /* Align all items to the left */
+    }
+
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+        left: 10px; /* Adjust indicator position */
+    }
 }
