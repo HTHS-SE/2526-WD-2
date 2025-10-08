@@ -125,11 +125,14 @@ nav {
     --color-dark: #000000;
 }
 
+/* Footer */
 .footer-text {
     font-family: 'Public Sans', sans-serif;
     font-size: calc(20/12)rem;
 }
 
+
+/* Font Sizes and Styles */
 h5 {
     font-size: 13px;
     font-family: 'Times New Roman', serif;
@@ -153,6 +156,7 @@ h1 {
     font-size: calc(100/12 * 1rem);
 }
 
+/* Gallery */
 .gallery-height {
     height: 400px;
     width: 100%;
@@ -368,6 +372,30 @@ body {
     .timeline-item.right::after {
         left: 10px; /* Adjust indicator position */
     }
+}
+
+/* Timeline Text and Image Styles */
+.timeline-img {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    /*object-fit: contain;*/
+}
+
+
+.timeline-date {
+    font-size: calc(28/12 * 1rem);
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.timeline-text {
+    font-size: clamp(calc(20/12 * 1rem), 1.2vw + 0.3rem, 1.4rem);
+    line-height: 1.5;
+    text-indent: 20px;
+}
+
+.timeline-subheader {
+    font-size: calc(30/12 * 1rem);
 }
 
 /* Fade in Animation */
