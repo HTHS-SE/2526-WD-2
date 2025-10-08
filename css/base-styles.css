@@ -225,13 +225,18 @@ body {
 
 * {  box-sizing: border-box;}
 
+<<<<<<< HEAD
 
 /* Card Component */
+=======
+/* Artist Page*/
+>>>>>>> 7add6dffe12bd6bd33f68954323947aa5e233056
 .card {
     max-width: 450px;
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 /* Timeline */
 
 /* Vertical line */
@@ -317,4 +322,25 @@ body {
     .timeline-item.right::after {
         left: 10px; /* Adjust indicator position */
     }
+=======
+.background-color{
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.card-heading{
+    font-size: calc(40/12 * 1rem);
+}
+
+.card-text{
+    font-size: calc(18/12 * 1rem);
+}
+
+.card-year{
+    font-size: calc(28/12 * 1rem);
+}
+
+.modal-text{
+    font-size: calc(18/12 * 1rem);
+>>>>>>> 7add6dffe12bd6bd33f68954323947aa5e233056
 }
