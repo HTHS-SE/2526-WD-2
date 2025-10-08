@@ -232,6 +232,27 @@ body {
     margin: 0 auto;
 }
 
+.background-color{
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.card-heading{
+    font-size: calc(40/12 * 1rem);
+}
+
+.card-text{
+    font-size: calc(18/12 * 1rem);
+}
+
+.card-year{
+    font-size: calc(28/12 * 1rem);
+}
+
+.modal-text{
+    font-size: calc(18/12 * 1rem);
+}
+
 /* Timeline */
 
 /* Vertical line */
