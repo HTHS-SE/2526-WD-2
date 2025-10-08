@@ -177,16 +177,19 @@ body {
 .square-gallery-modal-img {
     max-width: 80%;
     height: auto;
+    /*cursor: none;*/
 }
 
 .vertical-gallery-modal-img {
     max-width: 50%;
     height: auto;
+    cursor: none;
 }
 
 .horizontal-gallery-modal-img {
     max-width: 100%;
     height: auto;
+    cursor: none;
 }
 
 .modal-title {
@@ -199,3 +202,19 @@ body {
     text-indent: 20px;
 }
 
+.img-magnifier-container {
+    position: relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+
+}
+
+* {  box-sizing: border-box;}
