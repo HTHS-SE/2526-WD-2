@@ -40,9 +40,33 @@ nav {
     padding: 0px;
 }
 .website-logo{
-    max-width: 70px;
+    max-width: 37px;
     height: auto;
+    position: relative;
 }
+.default-logo{
+    display: block;
+    z-index: 1;
+}
+.default-logo:hover{
+    display: block;
+    background-image: url("img/hover-logo");
+    opacity: 0;
+}
+.placeholder{
+    opacity: 0;
+    z-index: -1;
+}
+/*
+.hover-logo{
+    opacity: 0;
+    transition: 0.3 ease-in-out;
+}
+.hover-logo:hover{
+    opacity: 100;
+    transition: 0.3 ease-in-out;
+}
+*/
 
 /* Index */
 .cover-img{
