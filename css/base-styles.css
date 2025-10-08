@@ -365,7 +365,8 @@ body {
 }
 
 .timeline-text {
-    font-size: calc(18/12 * 1rem);
+    font-size: clamp(calc(20/12 * 1rem), 1.2vw + 0.3rem, 1.4rem);
+    line-height: 1.5;
     text-indent: 20px;
 }
 
