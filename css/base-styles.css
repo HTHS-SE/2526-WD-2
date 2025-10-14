@@ -260,7 +260,10 @@ body {
   /*Set the size of the magnifier glass:*/
   width: 100px;
   height: 100px;
-
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* so it doesn’t block hover detection */
 }
 
 * {  box-sizing: border-box;}
