@@ -26,6 +26,15 @@ function magnifyByClass(imgClass, zoom) {
       glass.style.opacity = "0";
     });
 
+    window.addEventListener("resize", () => {
+      imgs.forEach(img => {
+        const glass = img.previousElementSibling; // assuming glass is inserted before img
+        if (glass) {
+          glass.style.backgroundSize = `${img.offsetWidth * zoom}px ${img.offsetHeight * zoom}px`;
+        }
+      });
+    });
+
     // Mouse and touch events
     ["mousemove", "touchmove"].forEach(evt => {
       glass.addEventListener(evt, moveMagnifier);

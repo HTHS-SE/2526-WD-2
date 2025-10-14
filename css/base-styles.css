@@ -216,6 +216,15 @@ body {
     border-radius: 5px;
 }
 
+/* Plus Icon Style */
+.bi-plus-circle-fill {
+  color: #ff5757; /* icon color */
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff;
+}
+
 /* Modal Styles */
 
 .square-gallery-modal-img {
@@ -256,14 +265,14 @@ body {
   position: absolute;
   border: 3px solid var(--color-accent);
   border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
+  /*Set the size of the magnifier glass to be 100 px by 100 px (can change if needed)*/
   width: 100px;
   height: 100px;
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.2s ease;
-  pointer-events: none; /* so it doesn’t block hover detection */
+  pointer-events: none; /* Prevent the glass from interfering with mouse events */
+  
 }
 
 * {  box-sizing: border-box;}
@@ -310,8 +319,8 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 3px; /* Thickness of the line */
-    background-color: #dee2e6; /* Color of the line */
+    width: 3px;
+    background-color: #dee2e6;
     left: 50%;
     margin-left: -1.5px; /* Half of the width to center it */
 }
@@ -320,7 +329,7 @@ body {
 .timeline-item {
     margin-bottom: 20px;
     position: relative;
-    width: 50%; /* Each item takes half the width */
+    width: 50%; 
 }
 
 /* Positioning left and right items */
@@ -342,7 +351,7 @@ body {
     border: 1px solid #e9ecef;
 }
 
-/* Circles or indicators on the line */
+/* Circles on the line */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -398,12 +407,14 @@ body {
     .timeline-text-div {
         margin-bottom: 15px;
     }
+
 }
+
 /* Timeline Text and Image Styles */
 .timeline-img {
     border: 1px solid lightgray;
     border-radius: 5px;
-    /*object-fit: contain;*/
+    cursor: none;
 }
 
 
@@ -448,11 +459,8 @@ body {
 
 .fade-section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-section.visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeInUp 0.8s ease-out forwards;
 }
