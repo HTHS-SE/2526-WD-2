@@ -362,7 +362,7 @@ body {
 
 /* Responsive adjustments */
 
- @media (max-width: 768px) {
+ @media (max-width: 1161px) {
     .timeline::before {
         left: 20px; /* Adjust line position for smaller screens */
         margin-left: 0;
@@ -391,6 +391,10 @@ body {
     .timeline-item.right {
         padding-left: 50px; /* space from timeline bar */
     }
+
+    .timeline-text-div {
+        margin-bottom: 15px;
+    }
 }
 /* Timeline Text and Image Styles */
 .timeline-img {
@@ -410,6 +414,11 @@ body {
     font-size: clamp(calc(20/12 * 1rem), 1.2vw + 0.3rem, 1.4rem);
     line-height: 1.5;
     text-indent: 20px;
+}
+
+.timeline-img-vertical {
+    height: 50%;
+    width: auto;
 }
 
 .timeline-subheader {
