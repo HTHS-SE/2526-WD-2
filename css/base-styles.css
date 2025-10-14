@@ -355,7 +355,8 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+
+ @media (max-width: 768px) {
     .timeline::before {
         left: 20px; /* Adjust line position for smaller screens */
         margin-left: 0;
@@ -364,7 +365,7 @@ body {
     .timeline-item {
         width: 100%;
         padding-left: 50px; /* Space for the line and indicator */
-        padding-right: 0;
+        padding-right: 30px;
         left: 0; /* Align all items to the left */
     }
 
@@ -372,8 +373,19 @@ body {
     .timeline-item.right::after {
         left: 10px; /* Adjust indicator position */
     }
-}
+    
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right {
+        width: 100%;
+        left: 0;
+        padding-right: 30px;  /* space from timeline bar */
+    }
 
+    .timeline-item.right {
+        padding-left: 50px; /* space from timeline bar */
+    }
+}
 /* Timeline Text and Image Styles */
 .timeline-img {
     border: 1px solid lightgray;
