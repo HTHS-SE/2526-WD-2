@@ -116,6 +116,12 @@ nav {
     color: black;
     margin-top: 20px;
 }
+.caption-text {
+    font-family: "Public Sans";
+    font-size: 1.8 rem;
+    color: black;
+    margin-top: 0px;
+}
 
 /* Base Colors */
 
