@@ -194,7 +194,7 @@
                     <div class="col-md-6 d-flex timeline-text-div">
                         <p class="timeline-text my-auto">The Société anonyme coopérative des artistes peintres, sculpteurs et graveurs was founded in 1873 by a group of artists including Monet, Renoir, and Degas. This cooperative aimed to provide a platform for artists to exhibit their work outside the traditional Salon system, which was often restrictive and biased against innovative styles like Impressionism.</p>
                     </div>
-                    <div class="col-md-6 text-center d-flex flex-column justify-content-between">
+                    <div class="col-md-6 text-center d-flex flex-column justify-content-between img-magnifier-container">
                         <img src="img/timeline-img/societe-statues-1874.jpg" alt="A page detailing the statutes of the Société from 1874" class="img-fluid timeline-img mb-3 rounded timeline-img object-fit-cover flex-fill">
                         <h6 class="text-muted text-center">Société Statutes, 1874</h6>
                     </div>
@@ -207,8 +207,8 @@
                     <div class="col-md-6 d-flex timeline-text-div">
                         <p class="timeline-text my-auto">The first Impressionist exhibition took place in 1874, organized by the Société anonyme coopérative des artistes peintres, sculpteurs et graveurs. This groundbreaking event showcased works by Monet, Renoir, Degas, and others, marking a significant departure from the traditional Salon exhibitions. There would continue to be a number of Impressionist exhibition all throughout the 1870s and 1880s as the style grew in popularity.</p>
                     </div>
-                    <div class="col-md-6 text-center d-flex flex-column justify-content-between">
-                        <img src="img/timeline-img/first-exhibit.jpg" alt="The First Impressionist Exhibition, 1874" class="img-fluid timeline-img mb-3 rounded timeline-img timeline-img-vertical object-fit-cover flex-fill">
+                    <div class="col-md-6 text-center d-flex flex-column justify-content-between img-magnifier-container">
+                            <img src="img/timeline-img/first-exhibit.jpg" alt="The First Impressionist Exhibition, 1874" class="img-fluid timeline-img mb-3 rounded timeline-img timeline-img-vertical object-fit-cover flex-fill">
                         <h6 class="text-muted text-center">The First Impressionist Exhibition, 1874</h6>
                     </div>
                 </div>
@@ -253,5 +253,12 @@
 
         sections.forEach(section => observer.observe(section));
     </script>
+
+    <!-- Magnify Script -->
+    <script type="module">
+        import { magnify } from './js/magnify.js';
+        magnify("timeline-img", 2);
+    </script>
+    
 </body>
 </html>
