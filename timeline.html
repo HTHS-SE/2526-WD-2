@@ -100,7 +100,7 @@
     <!-- Timeline Content -->
     <div class="container py-5">
         <div class="timeline">
-            <div class="timeline-item left">
+            <div class="timeline-item left fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">Collapsible Metal Paint Tube</h3>
                     <p class="fw-bolder timeline-date">1841</p>
@@ -113,8 +113,8 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item right">
-                <div class="timeline-content row d-flex align-items-stretch">
+            <div class="timeline-item right fade-section">
+                <div class="timeline-content row d-flex align-items-stretch fade-on-scroll">
                     <h3 class="subheader timeline-subheader">A Burial at Ornans</h3>
                     <p class="fw-bolder timeline-date">1849</p>
                     <div class="col-md-6 d-flex">
@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item left">
+            <div class="timeline-item left fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">Pavilion of Realism</h3>
                     <p class="fw-bolder timeline-date">1855</p>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item right">
+            <div class="timeline-item right fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">Avant-Garde Artists Accumulate</h3>
                     <p class="fw-bolder timeline-date">1862</p>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item left">
+            <div class="timeline-item left fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">Manet's <em>Olympia</em></h3>
                     <p class="fw-bolder timeline-date">1865</p>
@@ -165,7 +165,7 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item right">
+            <div class="timeline-item right fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">Impression Begins</h3>
                     <p class="fw-bolder timeline-date">1869</p>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item left">
+            <div class="timeline-item left fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">Société anonyme coopérative des artistes peintres, sculpteurs et graveurs</h3>
                     <p class="fw-bolder timeline-date">1873</p>
@@ -191,7 +191,7 @@
                     </div>
                 </div>
             </div>
-            <div class="timeline-item right">
+            <div class="timeline-item right fade-section">
                 <div class="timeline-content row d-flex align-items-stretch">
                     <h3 class="subheader timeline-subheader">The First Impressionist Exhibition</h3>
                     <p class="fw-bolder timeline-date">1874</p>
@@ -228,6 +228,21 @@
         const scrollPercent = (scrollTop / scrollHeight) * 100;
         scrollProgress.style.width = scrollPercent + "%";
     };
+    </script>
+
+    <!-- Fade-in on scroll script -->
+     <script>
+        const sections = document.querySelectorAll('.fade-section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+            });
+        }, { threshold: 0.2 }); // 20% of element visible before animation triggers
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
