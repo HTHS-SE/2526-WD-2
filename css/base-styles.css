@@ -29,6 +29,31 @@ nav {
     font-family: 'DM Sans', sans-serif;
     font-size: calc(18/12 * 1rem);
 }
+
+/* Underline effect for nav links */
+.nav-link span {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav-link span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;            /* start hidden */
+    height: 2px;         /* thickness of underline */
+    background-color: pink; /* underline color */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover span::after {
+  width: 100%;         /* expand underline on hover */
+}
+
+
+/* Navbar Colors */
 .nbMenuItem{
     color: #ffffff;
     font-weight: 600;
@@ -121,6 +146,11 @@ nav {
     font-size: 1.8 rem;
     color: black;
     margin-top: 0px;
+}
+
+.index-img {
+    border-radius: 5px;
+    border: 1px solid lightgray;
 }
 
 /* Base Colors */
@@ -230,19 +260,16 @@ body {
 .square-gallery-modal-img {
     max-width: 80%;
     height: auto;
-    /*cursor: none;*/
 }
 
 .vertical-gallery-modal-img {
     max-width: 50%;
     height: auto;
-    cursor: none;
 }
 
 .horizontal-gallery-modal-img {
     max-width: 100%;
     height: auto;
-    cursor: none;
 }
 
 .modal-title {
@@ -282,6 +309,17 @@ body {
 .card {
     max-width: 450px;
     margin: 0 auto;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    border-radius: 0 0 5px 5px;
+    font-family: "Playfair Display", serif;
+}
+
+.btn-primary:hover {
+    background-color: pink;
+    border-color: pink;
 }
 
 .background-color{
@@ -291,6 +329,8 @@ body {
 
 .card-heading{
     font-size: calc(40/12 * 1rem);
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
 }
 
 .card-text{
@@ -299,6 +339,7 @@ body {
 
 .card-year{
     font-size: calc(28/12 * 1rem);
+    font-family: "DM Sans", sans-serif;
 }
 
 .modal-text{
