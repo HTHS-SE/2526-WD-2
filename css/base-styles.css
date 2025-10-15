@@ -151,6 +151,7 @@ nav {
 .index-img {
     border-radius: 5px;
     border: 1px solid lightgray;
+    cursor: none;
 }
 
 /* Base Colors */
@@ -187,9 +188,19 @@ h4 {
     transition: transform 0.3s ease;
 }
 
+
 .rotation:hover {
     transform: rotate(90deg);
 }
+
+.rotation-180 {
+    transition: transform 0.3s ease;
+}
+
+.rotation-180:hover {
+    transform: rotate(180deg);
+}
+
 
 h1 {
     font-size: calc(100/12 * 1rem);

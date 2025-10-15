@@ -71,4 +71,5 @@ function magnifyByClass(imgClass, zoom) {
 
 window.onload = function() {
   magnifyByClass("timeline-img", 2);
+  magnifyByClass("index-img", 1.5);
 };
