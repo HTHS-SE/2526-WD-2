@@ -61,7 +61,7 @@
                     </div>
 
                     <!--Homepage Link-->
-                    <a href="index.html" class="nav-link nbMenuItem">Home</a>
+                    <a href="index.html" class="nav-link nbMenuItem"><span>Home</span></a>
                 </a>
 
                 <!--Hamburger Menu Button-->
@@ -75,13 +75,13 @@
                     <!--Links to hamburger menu button-->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="artists.html" class="nav-link nbMenuItem">Artists</a>
+                            <a href="artists.html" class="nav-link nbMenuItem"><span>Artists</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="gallery.html" class="nav-link nbMenuItem">Gallery</a>
+                            <a href="gallery.html" class="nav-link nbMenuItem"><span>Gallery</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="timeline.html" class="nav-link nbMenuItem">Timeline</a>
+                            <a href="timeline.html" class="nav-link nbMenuItem"><span>Timeline</span></a>
                         </li>
                     </ul>
                 </div>
@@ -128,8 +128,8 @@
                     <p class="lead overview-text ovPadRight">Though these artists differed in individual style, their shared techniques (such as loose, feathered brushwork) and colorful depictions of everyday life became hallmarks of the Impressionist movement. Such an approach may seem cliche in the modern age, but it was revolutionary at the time; paintings were expected to depict historical and biblical subjects in more muted tones and with rigid techniques. Indeed, art critic Louis Leroy accused Claude Monet’s Impression, Sunrise of being merely an “impression” or a sketch rather than a complete painting, giving the movement its name. </p>
                     <p class="lead overview-text ovPadRight">Nevertheless, despite its unfavorable initial reception, Impressionism continues to have a lasting influence on the art of today. Whether through sparking the Avant-Garde movement through its challenging of artistic norms or broadening the scope of art to include natural, fleeting scenes, Impressionism’s legacy can be seen throughout modern paintings, photography, and culture. </p>
                 </div>
-                <div class="col-lg-4 col-md-8 col-sm-8 p-5 overview-img">
-                    <img class="img-fluid p-2 d-flex justify-content-center align-items-center" src="img/index-img/overview-impressionism.png">
+                <div class="col-lg-4 col-md-8 col-sm-8 p-5 overview-img img-magnifier-container">
+                    <img class="img-fluid d-flex justify-content-center align-items-center index-img" src="img/index-img/overview-impressionism.png">
                     <h4 class = "caption-text p-2 text-center"><em>Watermill at Limetz</em> by Claude Monet, 1888</h4>
                 </div>
             </div>
@@ -150,15 +150,10 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scroll Progress Script -->
-    <script>
-        window.onscroll = function() {
-        const scrollProgress = document.getElementById("scrollProgressBar");
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / scrollHeight) * 100;
-        scrollProgress.style.width = scrollPercent + "%";
-    };
-    </script>
+    <!-- Basic Functions Script -->
+    <script src="js/basic-functions.js"></script>
+
+    <!-- Magnify Script -->
+    <script src="js/magnify.js"></script>
 </body>
 </html>

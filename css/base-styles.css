@@ -29,6 +29,31 @@ nav {
     font-family: 'DM Sans', sans-serif;
     font-size: calc(18/12 * 1rem);
 }
+
+/* Underline effect for nav links */
+.nav-link span {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav-link span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;            /* start hidden */
+    height: 2px;         /* thickness of underline */
+    background-color: pink; /* underline color */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover span::after {
+  width: 100%;         /* expand underline on hover */
+}
+
+
+/* Navbar Colors */
 .nbMenuItem{
     color: #ffffff;
     font-weight: 600;
@@ -123,6 +148,11 @@ nav {
     margin-top: 0px;
 }
 
+.index-img {
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
 /* Base Colors */
 
 :root {
@@ -153,21 +183,19 @@ h4 {
     font-family: 'Public Sans', sans-serif;
 }
 
+.rotation {
+    transition: transform 0.3s ease;
+}
+
 .rotation:hover {
     transform: rotate(90deg);
-    transition: transform 0.3s ease;
 }
 
 h1 {
     font-size: calc(100/12 * 1rem);
 }
 
-/* Gallery */
-.gallery-height {
-    height: 400px;
-    width: 100%;
-    object-fit: cover;
-}
+
 
 .accent-color {
     color: var(--color-accent);
@@ -216,24 +244,41 @@ body {
     border-radius: 5px;
 }
 
+.gallery-height {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+/* Plus Icon Style */
+.bi-plus-circle-fill {
+  color: #ff5757; /* icon color */
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff;
+}
+
 /* Modal Styles */
 
 .square-gallery-modal-img {
     max-width: 80%;
     height: auto;
-    /*cursor: none;*/
 }
 
 .vertical-gallery-modal-img {
     max-width: 50%;
     height: auto;
-    cursor: none;
 }
 
 .horizontal-gallery-modal-img {
     max-width: 100%;
     height: auto;
-    cursor: none;
 }
 
 .modal-title {
@@ -256,11 +301,14 @@ body {
   position: absolute;
   border: 3px solid var(--color-accent);
   border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
+  /*Set the size of the magnifier glass to be 100 px by 100 px (can change if needed)*/
   width: 100px;
   height: 100px;
-
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* Prevent the glass from interfering with mouse events */
+  
 }
 
 * {  box-sizing: border-box;}
@@ -270,6 +318,17 @@ body {
 .card {
     max-width: 450px;
     margin: 0 auto;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    border-radius: 0 0 5px 5px;
+    font-family: "Playfair Display", serif;
+}
+
+.btn-primary:hover {
+    background-color: pink;
+    border-color: pink;
 }
 
 .background-color{
@@ -279,6 +338,8 @@ body {
 
 .card-heading{
     font-size: calc(40/12 * 1rem);
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
 }
 
 .card-text{
@@ -287,10 +348,16 @@ body {
 
 .card-year{
     font-size: calc(28/12 * 1rem);
+    font-family: "DM Sans", sans-serif;
 }
 
 .modal-text{
     font-size: calc(18/12 * 1rem);
+}
+
+.card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
 }
 
 /* Timeline */
@@ -307,8 +374,8 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 3px; /* Thickness of the line */
-    background-color: #dee2e6; /* Color of the line */
+    width: 3px;
+    background-color: #dee2e6;
     left: 50%;
     margin-left: -1.5px; /* Half of the width to center it */
 }
@@ -317,7 +384,7 @@ body {
 .timeline-item {
     margin-bottom: 20px;
     position: relative;
-    width: 50%; /* Each item takes half the width */
+    width: 50%; 
 }
 
 /* Positioning left and right items */
@@ -339,7 +406,7 @@ body {
     border: 1px solid #e9ecef;
 }
 
-/* Circles or indicators on the line */
+/* Circles on the line */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -395,12 +462,14 @@ body {
     .timeline-text-div {
         margin-bottom: 15px;
     }
+
 }
+
 /* Timeline Text and Image Styles */
 .timeline-img {
     border: 1px solid lightgray;
     border-radius: 5px;
-    /*object-fit: contain;*/
+    cursor: none;
 }
 
 
@@ -445,11 +514,8 @@ body {
 
 .fade-section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-section.visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeInUp 0.8s ease-out forwards;
 }

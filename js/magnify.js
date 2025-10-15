@@ -1,57 +1,74 @@
-export function magnifyByClass(imgClass, zoom) {
-  var imgs = document.getElementsByClassName(imgClass); // Get all images with this class
+function magnifyByClass(imgClass, zoom) {
+  // Select all images with the given class (e.g., ".magnifiable")
+  const imgs = document.querySelectorAll(`.${imgClass}`);
 
-  for (let i = 0; i < imgs.length; i++) {
-    let img = imgs[i];
+  imgs.forEach(img => {
+    const glass = document.createElement("DIV");
+    glass.classList.add("img-magnifier-glass");
 
-    /* Create magnifier glass: */
-    let glass = document.createElement("DIV");
-    glass.setAttribute("class", "img-magnifier-glass");
-
-    /* Insert magnifier glass: */
+    // Insert the magnifier before the image
     img.parentElement.insertBefore(glass, img);
 
-    /* Set background properties for the magnifier glass: */
-    glass.style.backgroundImage = "url('" + img.src + "')";
+    // Set up magnifier background
+    glass.style.backgroundImage = `url('${img.src}')`;
     glass.style.backgroundRepeat = "no-repeat";
-    glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+    glass.style.backgroundSize = `${img.width * zoom}px ${img.height * zoom}px`;
 
-    let bw = 3;
-    let w = glass.offsetWidth / 2;
-    let h = glass.offsetHeight / 2;
+    const bw = 3;
+    const w = glass.offsetWidth / 2;
+    const h = glass.offsetHeight / 2;
 
-    /* Execute a function when someone moves the magnifier glass over the image: */
-    glass.addEventListener("mousemove", moveMagnifier);
-    img.addEventListener("mousemove", moveMagnifier);
-    glass.addEventListener("touchmove", moveMagnifier);
-    img.addEventListener("touchmove", moveMagnifier);
+    img.addEventListener("mouseenter", () => {
+      glass.style.opacity = "1";
+    });
+
+    img.addEventListener("mouseleave", () => {
+      glass.style.opacity = "0";
+    });
+
+    window.addEventListener("resize", () => {
+      imgs.forEach(img => {
+        const glass = img.previousElementSibling; // assuming glass is inserted before img
+        if (glass) {
+          glass.style.backgroundSize = `${img.offsetWidth * zoom}px ${img.offsetHeight * zoom}px`;
+        }
+      });
+    });
+
+    // Mouse and touch events
+    ["mousemove", "touchmove"].forEach(evt => {
+      glass.addEventListener(evt, moveMagnifier);
+      img.addEventListener(evt, moveMagnifier);
+    });
 
     function moveMagnifier(e) {
-      var pos, x, y;
       e.preventDefault();
-      pos = getCursorPos(e);
-      x = pos.x;
-      y = pos.y;
+      const pos = getCursorPos(e);
+      let x = pos.x;
+      let y = pos.y;
 
-      if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
-      if (x < w / zoom) { x = w / zoom; }
-      if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
-      if (y < h / zoom) { y = h / zoom; }
+      // Prevent magnifier from going outside image bounds
+      if (x > img.width - w / zoom) x = img.width - w / zoom;
+      if (x < w / zoom) x = w / zoom;
+      if (y > img.height - h / zoom) y = img.height - h / zoom;
+      if (y < h / zoom) y = h / zoom;
 
-      glass.style.left = (x - w) + "px";
-      glass.style.top = (y - h) + "px";
-      glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+      // Move magnifier and update background position
+      glass.style.left = `${x - w}px`;
+      glass.style.top = `${y - h}px`;
+      glass.style.backgroundPosition = `-${(x * zoom - w + bw)}px -${(y * zoom - h + bw)}px`;
     }
 
     function getCursorPos(e) {
-      var a, x = 0, y = 0;
       e = e || window.event;
-      a = img.getBoundingClientRect();
-      x = e.pageX - a.left;
-      y = e.pageY - a.top;
-      x = x - window.pageXOffset;
-      y = y - window.pageYOffset;
-      return { x: x, y: y };
+      const rect = img.getBoundingClientRect();
+      const x = e.pageX - rect.left - window.pageXOffset;
+      const y = e.pageY - rect.top - window.pageYOffset;
+      return { x, y };
     }
-  }
+  });
 }
+
+window.onload = function() {
+  magnifyByClass("timeline-img", 2);
+};
