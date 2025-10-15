@@ -183,9 +183,12 @@ h4 {
     font-family: 'Public Sans', sans-serif;
 }
 
+.rotation {
+    transition: transform 0.3s ease;
+}
+
 .rotation:hover {
     transform: rotate(90deg);
-    transition: transform 0.3s ease;
 }
 
 h1 {
