@@ -192,12 +192,7 @@ h1 {
     font-size: calc(100/12 * 1rem);
 }
 
-/* Gallery */
-.gallery-height {
-    height: 400px;
-    width: 100%;
-    object-fit: cover;
-}
+
 
 .accent-color {
     color: var(--color-accent);
@@ -244,6 +239,17 @@ body {
 .gallery-item {
     padding: 10px;
     border-radius: 5px;
+}
+
+.gallery-height {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
 }
 
 /* Plus Icon Style */
@@ -344,6 +350,11 @@ body {
 
 .modal-text{
     font-size: calc(18/12 * 1rem);
+}
+
+.card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
 }
 
 /* Timeline */

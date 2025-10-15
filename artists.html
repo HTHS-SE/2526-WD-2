@@ -1,302 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>An Overview of Impressionism</title>
-    <!-- Importing necessary Bootstrap libraries-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
-                rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-                crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
-                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
-                crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/base-styles.css">
-    
-    <!-- Importing Google Fonts-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>An Overview of Impressionism</title>
+        <!-- Importing necessary Bootstrap libraries-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/base-styles.css">
 
-    <!-- DM Sans-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    
-    <!-- Playfair Display-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
-    <!-- Libre Caslon Display-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
-    
-    <!-- Public Sans-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-       <div class="container-fluid">
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
-            <div class="container">
-                
-                <a href="index.html" class="navbar-brand position-relative">
+        <!-- Importing Google Fonts-->
 
-                    <!--Website Icon-->
-                    <div class="hover-logo position-absolute">
-                        <img src="img/hover-logo.png" class="website-logo">
+        <!-- DM Sans-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+
+        <!-- Playfair Display-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+            rel="stylesheet">
+
+        <!-- Libre Caslon Display-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap"
+            rel="stylesheet">
+
+        <!-- Public Sans-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <!--Navbar-->
+            <nav
+                class="navbar navbar-expand-lg navbar-dark nb-background-color">
+                <div class="container">
+
+                    <a href="index.html" class="navbar-brand position-relative">
+
+                        <!--Website Icon-->
+                        <div class="hover-logo position-absolute">
+                            <img src="img/hover-logo.png" class="website-logo">
+                        </div>
+                        <div class="default-logo position-absolute">
+                            <img src="img/website-logo.png"
+                                class="website-logo">
+                        </div>
+
+                        <div class="placeholder">
+                            <img src="img/website-logo.png"
+                                class="website-logo">
+                        </div>
+
+                        <!--Homepage Link-->
+                        <a href="index.html"
+                            class="nav-link nbMenuItem"><span>Home</span></a>
+                    </a>
+
+                    <!--Hamburger Menu Button-->
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!--Collapsible navbar menu with custom hover-->
+                    <div class="collapse navbar-collapse" id="navmenu">
+
+                        <!--Links to hamburger menu button-->
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="artists.html"
+                                    class="nav-link nbMenuItem"><span>Artists</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="gallery.html"
+                                    class="nav-link nbMenuItem"><span>Gallery</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="timeline.html"
+                                    class="nav-link nbMenuItem"><span>Timeline</span></a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="default-logo position-absolute">
-                        <img src="img/website-logo.png" class="website-logo">
-                    </div>
-
-                    <div class="placeholder">
-                        <img src="img/website-logo.png" class="website-logo">
-                    </div>
-
-                    <!--Homepage Link-->
-                    <a href="index.html" class="nav-link nbMenuItem"><span>Home</span></a>
-                </a>
-
-                <!--Hamburger Menu Button-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!--Collapsible navbar menu with custom hover-->
-                <div class="collapse navbar-collapse" id="navmenu">
-
-                    <!--Links to hamburger menu button-->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a href="artists.html" class="nav-link nbMenuItem"><span>Artists</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="gallery.html" class="nav-link nbMenuItem"><span>Gallery</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="timeline.html" class="nav-link nbMenuItem"><span>Timeline</span></a>
-                        </li>
-                    </ul>
                 </div>
+            </nav>
+
+            <!-- Scroll Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar-scroll" id="scrollProgressBar"></div>
             </div>
-        </nav>
-
-        <!-- Scroll Progress Bar -->
-        <div class="progress-container">
-            <div class="progress-bar-scroll" id="scrollProgressBar"></div>
         </div>
-    </div>
 
-    <!-- Title-->
+        <!-- Title-->
         <header class="text-dark text-start py-5 mb-4">
             <div class="container">
                 <h1 class="fw-bolder">Artists</h1>
-                <p class="lead subheader"><em>Getting to know Impressionist artists</em></p>
+                <p class="lead subheader"><em>Getting to know Impressionist
+                        artists</em></p>
             </div>
-         <hr>
+            <hr>
         </header>
 
-    <!-- Artist Cards-->
+        <!-- Artist Cards-->
         <section class="artists">
             <div class="container">
                 <!--Cards organized-->
                 <div class="row justify-content-center g-4">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6"> <!--Card 1 Modal-->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 fade-section">
+                        <!--Card 1-->
                         <div class="card border-dark" style="height: 850px;">
-                            <img src="img/artists-img/claudemonet-self.jpg" class="card-img-top" alt="Picture of Claude Monet" height="475px">
+                            <img src="img/artists-img/claudemonet-self.jpg"
+                                class="card-img-top"
+                                alt="Picture of Claude Monet" height="475px">
                             <div class="card-body">
                                 <h2 class="card-heading">Claude Monet</h2>
-                                <h3 class="card-year"><em>1840-1926</em></h3><br>
-                                <p class="card-text"> Claude Monet was a French painter during the Impressionist movement. Some of his famous paintings 
-                                    include: Impression, Sunrise; The Water Lily Pond; Woman with a Parasol, Garden at Sainte-Adresse. The term impressionism 
-                                    is based on his painting Impression, Sunrise.
+                                <h3
+                                    class="card-year"><em>1840-1926</em></h3><br>
+                                <p class="card-text"> Claude Monet was a French
+                                    painter during the Impressionist movement.
+                                    Some of his famous paintings
+                                    include: Impression, Sunrise; The Water Lily
+                                    Pond; Woman with a Parasol, Garden at
+                                    Sainte-Adresse. The term impressionism
+                                    is based on his painting Impression,
+                                    Sunrise.
                                 </p>
                             </div>
                             <!--Button trigger for modal-->
-                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal">
+                            <button type="button"
+                                class="btn btn-primary btn-lg background-color"
+                                data-bs-toggle="modal"
+                                data-bs-target="#artistModal">
                                 Learn More
                             </button>
-                            <!--Modal-->
-                            <div class="modal fade" id="artistModal" tabindex="-1" aria-labelledby="IDK">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-1">Claude Monet</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p class="modal-text">Oscar-Claude Monet was born in November 1840 in Paris, France. Despite his father wanting 
-                                                him to be a part of the family grocery store business, Monet aspired to be an artist at a 
-                                                young age. He attended Le Havre secondary school of the arts at the age of 10. 6 years later, his 
-                                                mom died and he moved in with his aunt.</p>
-                                            <p class="modal-text">When Monet was 21, he joined the First Regiment of African Light Cavalry in Algeria. His aunt 
-                                                pressured him to end his service and complete an art course at a university. There, he became a 
-                                                student of Charles Gleyre and met many other famous artists. They include Pierre-Auguste Renoir, 
-                                                Alfred Sisley, and Frédéric Bazille.  All of the aspiring artists shared a new approach for art. </p>
-                                            <p class="modal-text">The Franco-Prussian war broke out which impacted the lives of many artists such as Monet. He and his wife 
-                                                at the time ended up taking refuge in England, where he studied the works of others. However, his most 
-                                                popular paintings were created around the time of when his wife died in 1879.
-                                            </p>
-                                            <p class="modal-text">Around 13 years later, he married Alicia Hoschede. Their family moved to Giverny, France where Monet felt very 
-                                                inspired. Paintings such as the Water Lilies, the Houses of Parliament, Mornings on the Seine, and more. In 1923, 
-                                                cataracts started to form on Monet’s eyes. This impacted the hues and colors of the paintings. Monet ended 
-                                                up passing away on December 5th 1926 due to lung cancer. </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6"> <!--Card 2 Modal-->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 fade-section">
+                        <!--Card 2-->
                         <div class="card border-dark" style="height: 850px;">
-                            <img src="img/artists-img/pissarro-self.jpg" class="card-img-top" alt="Picture of Camille Pissarro" height="475px">
+                            <img src="img/artists-img/pissarro-self.jpg"
+                                class="card-img-top"
+                                alt="Picture of Camille Pissarro"
+                                height="475px">
                             <div class="card-body">
                                 <h2 class="card-heading">Camille Pissarro</h2>
-                                <h3 class="card-year"><em>1830-1903</em></h3><br>
-                                <p class="card-text">Camille Pissarro was a pivotal figure in the Impressionist movement. His works 
-                                    were known for their depictions of everyday life and landscape. Pissarro’s art pieces include The 
-                                    Crystal Palace, The Boulevard Montmartre at Night, the Apple Harvest, etc.
+                                <h3
+                                    class="card-year"><em>1830-1903</em></h3><br>
+                                <p class="card-text">Camille Pissarro was a
+                                    pivotal figure in the Impressionist
+                                    movement. His works
+                                    were known for their depictions of everyday
+                                    life and landscape. Pissarro’s art pieces
+                                    include The
+                                    Crystal Palace, The Boulevard Montmartre at
+                                    Night, the Apple Harvest, etc.
                                 </p>
                             </div>
                             <!--Button trigger for modal-->
-                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal2">
+                            <button type="button"
+                                class="btn btn-primary btn-lg background-color"
+                                data-bs-toggle="modal"
+                                data-bs-target="#artistModal2">
                                 Learn More
                             </button>
-                            <!--Modal-->
-                            <div class="modal fade" id="artistModal2" tabindex="-1" aria-labelledby="IDK">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-1">Camille Pissarro</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p class="modal-text">Camille Pissarro was born on July 10 1830 in the US Virgin Islands. He lived in St. Thomas 
-                                                until he was 12 years old and then went to boarding school in Paris for a little bit. Ever 
-                                                since Pissarro was young, he drew in his free time. A Danish painter, Fritz Melbye, inspired 
-                                                Pissarro to paint full time. He became both his teacher and his friend. When Pissarro was 25, 
-                                                he went to Paris again to study under more artists. </p>
-                                            <p class="modal-text">Pissarro married Julie Vellay and had 8 children, 6 of them ended up becoming painters. During 
-                                                the Franco-Prussian War, their family had to flee France. They took refuge in Westow Hill, London. 
-                                                Here, Pissarro continued to create oil paintings. The paintings depicted scenery from Central London.</p>
-                                            <p class="modal-text">In 1890, Pissarro returned back to France. His work focused on rural and urban French life. It contained 
-                                                scenes from everyday life and landscapes. It is also interesting to note  He also mentored many known 
-                                                artists, including Pierre-Auguste Renoir. </p>
-                                            <p class="modal-text">Pissarro played a crucial role in developing Impressionist techniques and theories. He passed away on
-                                                November 13 1909. </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6"> <!--Card 3-->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 fade-section">
+                        <!--Card 3-->
                         <div class="card border-dark" style="height: 850px;">
-                            <img src="img/artists-img/renoir-self.jpg" class="card-img-top" alt="Picture of Pierre August Renoir" height="475px">
+                            <img src="img/artists-img/renoir-self.jpg"
+                                class="card-img-top"
+                                alt="Picture of Pierre August Renoir"
+                                height="475px">
                             <div class="card-body">
-                                <h2 class="card-heading">Pierre-Auguste Renior</h2>
-                                <h3 class="card-year"><em>1830-1903</em></h3><br>
-                                <p class="card-text">Pierre-Auguste Renoir was a French Impressionist painter who focused on the human 
-                                    figure and everyday life. His works include the Luncheon of the Boating Party , Dance at Bougival, 
+                                <h2 class="card-heading">Pierre-Auguste
+                                    Renior</h2>
+                                <h3
+                                    class="card-year"><em>1830-1903</em></h3><br>
+                                <p class="card-text">Pierre-Auguste Renoir was a
+                                    French Impressionist painter who focused on
+                                    the human
+                                    figure and everyday life. His works include
+                                    the Luncheon of the Boating Party , Dance at
+                                    Bougival,
                                     The Large Bathers, etc.</p>
                             </div>
                             <!--Button trigger for modal-->
-                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal3">
+                            <button type="button"
+                                class="btn btn-primary btn-lg background-color"
+                                data-bs-toggle="modal"
+                                data-bs-target="#artistModal3">
                                 Learn More
                             </button>
-                            <!--Modal-->
-                            <div class="modal fade" id="artistModal3" tabindex="-1" aria-labelledby="IDK">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-1">Pierre Auguste Renior</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p class="modal-text">Pierre-Auguste Renoir was born on February 25th, 1841, in France. As a child,
-                                                 he worked in a porcelain factory. Renoir painted designs on fine china and hangings/decorations 
-                                                 on fans. He would also visit the Louvre to study the works of French artists. In 1862, he began 
-                                                 to study art under Charles Gleyre. Renoir became acquainted with Claude Monet, Alfred Sisley, and 
-                                                 Frédéric Bazille. During his time in art school, he did not have enough money to buy paint. This 
-                                                 was why he started to exhibit his work. Renoir did not gain recognition right away due to the 
-                                                 Franco-Prussian War.</p>
-                                            <p class="modal-text">At this point in his career, his subjects consisted of scenic places and nature. 
-                                                As he lost access to his inspiration, the Fontainebleau, his subjects started to change. He also 
-                                                began to paint portraits of people. The people painted, mostly women, were depicted to be more beautiful 
-                                                and elegant.</p>
-                                            <p class="modal-text">Renoir continued to travel to see the art created by different artists from different
-                                                 countries. He went to Algeria, Spain, Italy, England, etc. During his summer in Guernsey (one of the Channel
-                                                  Islands in the English Channel), he created 15 paintings featuring different aspects of nature. In 1887, 
-                                                  Renoir was able to donate some of his paintings to Queen Victoria for her Golden Jubilee. </p>
-                                            <p class="modal-text">3 years later, Renoir married Aline Victorine Charigot. She served as a model for one of his
-                                                 previous paintings, the Luncheon of the Boating Party (1881). The couple ended up having 3 sons together. As 
-                                                 a result, Renoir started to paint many scenes of his everyday family life. Renoir continued to paint until he
-                                                was old. Even when he got arthritis, he painted. The artist sadly passed away on December 3rd, 1919.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6"> <!--Card 4-->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 fade-section">
+                        <!--Card 4-->
                         <div class="card border-dark" style="height: 850px;">
-                            <img src="img/artists-img/sisley-self.jpg" class="card-img-top" alt="Picture of Pierre August Renoir" height="475px">
+                            <img src="img/artists-img/sisley-self.jpg"
+                                class="card-img-top"
+                                alt="Picture of Pierre August Renoir"
+                                height="475px">
                             <div class="card-body">
                                 <h2 class="card-heading">Alfred Sisley</h2>
-                                <h3 class="card-year"><em>1830-1903</em></h3><br>
-                                <p class="card-text">Alfred Sisley was a popular English artist who focused on depicting landscapes. 
-                                    He became one of the most consistent Impressionist artists, despite financial hardships and little
+                                <h3
+                                    class="card-year"><em>1830-1903</em></h3><br>
+                                <p class="card-text">Alfred Sisley was a popular
+                                    English artist who focused on depicting
+                                    landscapes.
+                                    He became one of the most consistent
+                                    Impressionist artists, despite financial
+                                    hardships and little
                                     recognition.</p>
                             </div>
                             <!--Button trigger for modal-->
-                            <button type="button" class="btn btn-primary btn-lg background-color" data-bs-toggle="modal" data-bs-target="#artistModal4">
+                            <button type="button"
+                                class="btn btn-primary btn-lg background-color"
+                                data-bs-toggle="modal"
+                                data-bs-target="#artistModal4">
                                 Learn More
                             </button>
-                            <!--Modal-->
-                            <div class="modal fade" id="artistModal4" tabindex="-1" aria-labelledby="IDK">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-1">Alfred Sisley</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p class="modal-text">Alfred Sisley was born on October 30th, 1839, in France to British parents. His 
-                                                father was in the silk business, while his mother was a music connoisseur. When Sisley was 18 years 
-                                                old, he went to London to study business. He felt that this was not for him and returned to Paris. In 
-                                                1862, he studied at Marc-Charles-Gabriel Gleyre’s art studio. He met Claude Monet, Pierre-Auguste Renoir, 
-                                                and Frederic Bazille. The group painted landscapes together outside to capture the sunlight’s effects properly.
-                                                Many paintings created with this technique were more colorful than previous creations. </p>
-                                            <p class="modal-text">Sisley mainly focused on landscape painting. He depicts a serene and calming environment in his 
-                                                paintings. Unlike many artists, Sisley received an allowance from his father. At this time, he just painted as he 
-                                                pleased. However, when his father’s business failed, Sisley had to rely on the sale of his works to earn a living. 
-                                                From this point on, Sisley lived in poverty, as his paintings gained popularity only after his death. This impacted 
-                                                Sisley drastically because he was not used to this lifestyle. </p>
-                                            <p class="modal-text">In 1866, he married Eugenie Lesouezee, and their family lived in France. The couple ended up having 
-                                                two children. Even with all his challenges, Sisley was still committed to his career as a painter. He depicted places 
-                                                near Paris, including Versailles, and the forests at Mali. Due to the pressure in his financial situation, Sisley ran 
-                                                into some issues with his art dealer. Although he did not achieve the same amount of success as his colleagues, Sisley
-                                                 maintained a positive mentality.</p>
-                                            <p class="modal-text">During his last few years, he was in Wales. There, he painted various seascapes. Sisley passed away 
-                                                on January 29th, 1899. It is interesting to note that he asked his friend, Monet, to take care of his kids.</p>                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modal 1-->
+                <div class="modal fade" id="artistModal" tabindex="-1"
+                    aria-labelledby="IDK">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-1">Claude Monet</h1>
+                                <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-text">Oscar-Claude Monet was
+                                    born in November 1840 in Paris, France.
+                                    Despite his father wanting
+                                    him to be a part of the family grocery store
+                                    business, Monet aspired to be an artist at a
+                                    young age. He attended Le Havre secondary
+                                    school of the arts at the age of 10. 6 years
+                                    later, his
+                                    mom died and he moved in with his aunt.</p>
+                                <p class="modal-text">When Monet was 21, he
+                                    joined the First Regiment of African Light
+                                    Cavalry in Algeria. His aunt
+                                    pressured him to end his service and
+                                    complete an art course at a university.
+                                    There, he became a
+                                    student of Charles Gleyre and met many other
+                                    famous artists. They include Pierre-Auguste
+                                    Renoir,
+                                    Alfred Sisley, and Frédéric Bazille. All of
+                                    the aspiring artists shared a new approach
+                                    for art. </p>
+                                <p class="modal-text">The Franco-Prussian war
+                                    broke out which impacted the lives of many
+                                    artists such as Monet. He and his wife
+                                    at the time ended up taking refuge in
+                                    England, where he studied the works of
+                                    others. However, his most
+                                    popular paintings were created around the
+                                    time of when his wife died in 1879.
+                                </p>
+                                <p class="modal-text">Around 13 years later, he
+                                    married Alicia Hoschede. Their family moved
+                                    to Giverny, France where Monet felt very
+                                    inspired. Paintings such as the Water
+                                    Lilies, the Houses of Parliament, Mornings
+                                    on the Seine, and more. In 1923,
+                                    cataracts started to form on Monet’s eyes.
+                                    This impacted the hues and colors of the
+                                    paintings. Monet ended
+                                    up passing away on December 5th 1926 due to
+                                    lung cancer. </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modal 2-->
+                <div class="modal fade" id="artistModal2" tabindex="-1"
+                    aria-labelledby="IDK">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-1">Camille
+                                    Pissarro</h1>
+                                <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-text">Camille Pissarro was born
+                                    on July 10 1830 in the US Virgin Islands. He
+                                    lived in St. Thomas
+                                    until he was 12 years old and then went to
+                                    boarding school in Paris for a little bit.
+                                    Ever
+                                    since Pissarro was young, he drew in his
+                                    free time. A Danish painter, Fritz Melbye,
+                                    inspired
+                                    Pissarro to paint full time. He became both
+                                    his teacher and his friend. When Pissarro
+                                    was 25,
+                                    he went to Paris again to study under more
+                                    artists. </p>
+                                <p class="modal-text">Pissarro married Julie
+                                    Vellay and had 8 children, 6 of them ended
+                                    up becoming painters. During
+                                    the Franco-Prussian War, their family had to
+                                    flee France. They took refuge in Westow
+                                    Hill, London.
+                                    Here, Pissarro continued to create oil
+                                    paintings. The paintings depicted scenery
+                                    from Central London.</p>
+                                <p class="modal-text">In 1890, Pissarro returned
+                                    back to France. His work focused on rural
+                                    and urban French life. It contained
+                                    scenes from everyday life and landscapes. It
+                                    is also interesting to note He also mentored
+                                    many known
+                                    artists, including Pierre-Auguste Renoir.
+                                </p>
+                                <p class="modal-text">Pissarro played a crucial
+                                    role in developing Impressionist techniques
+                                    and theories. He passed away on
+                                    November 13 1909. </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modal 3-->
+                <div class="modal fade" id="artistModal3" tabindex="-1"
+                    aria-labelledby="IDK">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-1">Pierre Auguste
+                                    Renior</h1>
+                                <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-text">Pierre-Auguste Renoir was
+                                    born on February 25th, 1841, in France. As a
+                                    child,
+                                    he worked in a porcelain factory. Renoir
+                                    painted designs on fine china and
+                                    hangings/decorations
+                                    on fans. He would also visit the Louvre to
+                                    study the works of French artists. In 1862,
+                                    he began
+                                    to study art under Charles Gleyre. Renoir
+                                    became acquainted with Claude Monet, Alfred
+                                    Sisley, and
+                                    Frédéric Bazille. During his time in art
+                                    school, he did not have enough money to buy
+                                    paint. This
+                                    was why he started to exhibit his work.
+                                    Renoir did not gain recognition right away
+                                    due to the
+                                    Franco-Prussian War.</p>
+                                <p class="modal-text">At this point in his
+                                    career, his subjects consisted of scenic
+                                    places and nature.
+                                    As he lost access to his inspiration, the
+                                    Fontainebleau, his subjects started to
+                                    change. He also
+                                    began to paint portraits of people. The
+                                    people painted, mostly women, were depicted
+                                    to be more beautiful
+                                    and elegant.</p>
+                                <p class="modal-text">Renoir continued to travel
+                                    to see the art created by different artists
+                                    from different
+                                    countries. He went to Algeria, Spain, Italy,
+                                    England, etc. During his summer in Guernsey
+                                    (one of the Channel
+                                    Islands in the English Channel), he created
+                                    15 paintings featuring different aspects of
+                                    nature. In 1887,
+                                    Renoir was able to donate some of his
+                                    paintings to Queen Victoria for her Golden
+                                    Jubilee. </p>
+                                <p class="modal-text">3 years later, Renoir
+                                    married Aline Victorine Charigot. She served
+                                    as a model for one of his
+                                    previous paintings, the Luncheon of the
+                                    Boating Party (1881). The couple ended up
+                                    having 3 sons together. As
+                                    a result, Renoir started to paint many
+                                    scenes of his everyday family life. Renoir
+                                    continued to paint until he
+                                    was old. Even when he got arthritis, he
+                                    painted. The artist sadly passed away on
+                                    December 3rd, 1919.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modal 4-->
+                <div class="modal fade" id="artistModal4" tabindex="-1"
+                    aria-labelledby="IDK">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-1">Alfred Sisley</h1>
+                                <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-text">Alfred Sisley was born on
+                                    October 30th, 1839, in France to British
+                                    parents. His
+                                    father was in the silk business, while his
+                                    mother was a music connoisseur. When Sisley
+                                    was 18 years
+                                    old, he went to London to study business. He
+                                    felt that this was not for him and returned
+                                    to Paris. In
+                                    1862, he studied at Marc-Charles-Gabriel
+                                    Gleyre’s art studio. He met Claude Monet,
+                                    Pierre-Auguste Renoir,
+                                    and Frederic Bazille. The group painted
+                                    landscapes together outside to capture the
+                                    sunlight’s effects properly.
+                                    Many paintings created with this technique
+                                    were more colorful than previous creations.
+                                </p>
+                                <p class="modal-text">Sisley mainly focused on
+                                    landscape painting. He depicts a serene and
+                                    calming environment in his
+                                    paintings. Unlike many artists, Sisley
+                                    received an allowance from his father. At
+                                    this time, he just painted as he
+                                    pleased. However, when his father’s business
+                                    failed, Sisley had to rely on the sale of
+                                    his works to earn a living.
+                                    From this point on, Sisley lived in poverty,
+                                    as his paintings gained popularity only
+                                    after his death. This impacted
+                                    Sisley drastically because he was not used
+                                    to this lifestyle. </p>
+                                <p class="modal-text">In 1866, he married
+                                    Eugenie Lesouezee, and their family lived in
+                                    France. The couple ended up having
+                                    two children. Even with all his challenges,
+                                    Sisley was still committed to his career as
+                                    a painter. He depicted places
+                                    near Paris, including Versailles, and the
+                                    forests at Mali. Due to the pressure in his
+                                    financial situation, Sisley ran
+                                    into some issues with his art dealer.
+                                    Although he did not achieve the same amount
+                                    of success as his colleagues, Sisley
+                                    maintained a positive mentality.</p>
+                                <p class="modal-text">During his last few years,
+                                    he was in Wales. There, he painted various
+                                    seascapes. Sisley passed away
+                                    on January 29th, 1899. It is interesting to
+                                    note that he asked his friend, Monet, to
+                                    take care of his kids.</p> </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -304,28 +507,50 @@
             </div>
         </section>
         <br><br><br>
-        
-    <footer class="footer bg-dark p-5 text-white text-start position-relative">
-        <div class="container">
-            <p class="mb-0 lead footer-text">&copy; 2025 An Overview of Impressionism. Contact Us: 908-xxx-xxxx randomemail@gmail.com 
-                <em>This is a fictional website. Do not try and contact us.</em>
-            </p>
-            <a href="#" class="text-white position-absolute bottom-0 end-0 p-5"><i class="bi bi-palette h2"></i></a>
-        </div>
-    </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <footer
+            class="footer bg-dark p-5 text-white text-start position-relative">
+            <div class="container">
+                <p class="mb-0 lead footer-text">&copy; 2025 An Overview of
+                    Impressionism. Contact Us: 908-xxx-xxxx
+                    randomemail@gmail.com
+                    <em>This is a fictional website. Do not try and contact
+                        us.</em>
+                </p>
+                <a href="#"
+                    class="text-white position-absolute bottom-0 end-0 p-5"><i
+                        class="bi bi-palette h2"></i></a>
+            </div>
+        </footer>
 
-    <!-- Scroll Progress Script -->
-    <script>
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Scroll Progress Script -->
+        <script>
         window.onscroll = function() {
         const scrollProgress = document.getElementById("scrollProgressBar");
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrollPercent = (scrollTop / scrollHeight) * 100;
         scrollProgress.style.width = scrollPercent + "%";
-    };
-    </script>
-</body>
+        };
+        </script>
+        
+        <!-- Fade-in on scroll script -->
+        <script>
+            const sections = document.querySelectorAll('.fade-section');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+                });
+            }, { threshold: 0.2 }); // 20% of element visible before animation triggers
+
+            sections.forEach(section => observer.observe(section));
+        </script>
+    </body>
 </html>
