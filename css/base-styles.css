@@ -342,6 +342,13 @@ body {
     border-color: pink;
 }
 
+.btn-primary:active,
+.btn-primary.active {
+  background-color: pink !important;
+  border-color: pink !important; 
+  color: #ffffff !important; 
+}
+
 .background-color{
     background-color: var(--color-accent);
     border-color: var(--color-accent);
