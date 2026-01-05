@@ -1,0 +1,108 @@
+// ----------------- User Sign-In Page --------------------------------------//
+
+// ----------------- Firebase Setup & Initialization ------------------------//
+// Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+    from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+  import {getDatabase, ref, set, update, child, get}
+    from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
+
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC4AW_OHqs2s3dvtUDjdOKyFjCjKTmHIBY",
+    authDomain: "se-321-25260-firebase-demo.firebaseapp.com",
+    databaseURL: "https://se-321-25260-firebase-demo-default-rtdb.firebaseio.com",
+    projectId: "se-321-25260-firebase-demo",
+    storageBucket: "se-321-25260-firebase-demo.firebasestorage.app",
+    messagingSenderId: "748701381570",
+    appId: "1:748701381570:web:15a6638ce131a8d5071c5b"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  // Initialize Firebase Authentication
+  const auth = getAuth();
+
+  // Return instance of your app's firebase realtime database (FRD)
+  const db = getDatabase(app);
+
+// ---------------------- Sign-In User ---------------------------------------//
+
+document.getElementById('signIn').onclick = function() {
+
+    // Get user's email and password for signing in
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    console.log(email, password);
+
+    // Attempt to sign in the user
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Create user credential and store the user ID
+        const user = userCredential.user;
+
+        // Log sign-in date in the database
+        // 'update' will only add the last login info and won't overwrite everything else
+        let logDate = new Date();
+        update(ref(db, 'users/' + user.uid + '/accountInfo'), {
+            last_login: logDate,
+        })
+        .then(() => {
+            // User signed in successfully
+            alert('User signed in successfully!');
+
+            // Get a snapshot of all the user information that will be passed
+            // to the login function and stored in either session or local storage
+            // snapshot - copy of a system's state at a specific point in time
+            get(ref(db, 'users/' + user.uid + '/accountInfo')).then((snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+                    logIn(snapshot.val());
+                } else {
+                    console.log('User does not exist.');
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        })
+        .catch((error) => {
+            alert(error);
+        })
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+    })
+}
+
+
+
+// ---------------- Keep User Logged In ----------------------------------//
+function logIn(user) {
+    let keepLoggedIn = document.getElementById('keepLoggedInSwitch').ariaChecked;
+
+    // Session storage is temporary (only while browser session is active)
+    // Information saved as string (must convert JS object to string)
+    // Session storage will be cleared with a signOut() function in home.js
+    if(!keepLoggedIn) {
+        sessionStorage.setItem('user', JSON.stringify(user));
+        window.location = 'home.html';      // Redirect browser to home.html
+    }
+
+    // Local storage is permanent (keep user logged in even if browser is closed)
+    // Local storage will be cleared with signOut() function in home.js
+    else {
+        localStorage.setItem('keepLoggedIn', 'yes');
+        localStorage.setItem('user', JSON.stringify(user));
+        window.location = "home.html";
+    }
+}
