@@ -537,3 +537,11 @@ body {
 .fade-section.visible {
   animation: fadeInUp 0.8s ease-out forwards;
 }
+
+
+/* Sign In Page */
+
+.signForm {
+    max-width: 40%;
+    margin: 0 auto;
+}
