@@ -558,14 +558,23 @@ body {
     font-size: 1.5rem;
 }
 
+.registerForm {
+    font-family: 'Public Sans', sans-serif;
+    max-width: 600px;
+    margin: 5px;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
 .signFormOther {
     font-family: 'Public Sans', sans-serif;
-    min-height: 38px;
+    min-height: 30px;
+    max-height: 38px;
+    min-width: 280px;
     max-width: 400px;
     margin: 10px auto;
     padding: 20px;
     font-size: 1.3rem;
-    border-radius: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -621,4 +630,22 @@ body {
     font-size: calc(16/12 * 1rem);
     font-family: "Playfair Display", sans-serif;
 =======
+.submitRegistration {
+    display: flex;
+}
+
+.registerButton {
+    margin: 10px auto;
+    font-family: 'Public Sans', sans-serif;
+    color: #ffffff;
+    max-height: 38px;
+    min-width: 100px;
+    max-width: 400px;
+    padding: 5px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 220px;
+>>>>>>> Stashed changes
 }
