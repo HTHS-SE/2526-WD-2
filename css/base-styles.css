@@ -542,7 +542,13 @@ body {
 }
 
 
-/* Sign In Page */
+/* Sign In & Register */
+
+.signTitle {
+    font-family: 'Libre Caslon Display', serif;
+    font-size: 5rem;
+    margin-top: 38px;
+}
 
 .signForm {
     max-width: 600px;

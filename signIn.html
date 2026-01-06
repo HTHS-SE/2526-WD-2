@@ -106,27 +106,30 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Scroll Progress Bar -->
+    <!-- Scroll Progress Bar -->
         <div class="progress-container">
             <div class="progress-bar-scroll" id="scrollProgressBar"></div>
         </div>
 
     <div class="container">
-        <br><h2 class="text-center">Sign In</h2><br>
+        <br><h2 class="text-center signTitle">SIGN IN</h2><br>
     </div>
 
     <!--Sign Up -->
     <div class="signUpForm">     
         <form>
-            <input type="email" placeholder="Email" id="loginEmail" class="form-control mb-3">
-            <input type="password" placeholder="password" id="loginPassword" class="form-control mb-3">
-            <div class="form-check form-switch mb-3">
+            <input type="email" placeholder="Email" id="loginEmail" class="form-control mb-3 signForm">
+            <input type="password" placeholder="Password" id="loginPassword" class="form-control mb-3 signForm">
+            <div class="container-flex form-check form-switch mb-3 d-flex align-items-center justify-content-center">
                 <input class="form-check-input" type="checkbox" role="switch" id="keepLoggedInSwitch">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Keep me signed in</label>
+                <label class="form-check-label p-2" for="flexSwitchCheckDefault">Keep me signed in</label>
             </div>
-            <button type = "button" id="signIn" name="signIn" class="btn btn-outline-primary mb-3 w-50">Sign In</button>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <button type = "button" id="signIn" name="signIn" class="btn btn-outline-primary public-sans mb-3 background-color rounded">Sign In</button>
+            </div>
         </form>
     </div>
 
