@@ -43,6 +43,7 @@
 // ---------------------// Get reference values -----------------------------
 
 let userLink = document.getElementById('userLink');   // Username for navbar
+let userLinkText = document.getElementById('userLinkText');
 let currentUser = null;                               // Initialize currentUser to null
 
 // ----------------------- Get User's Name'Name ------------------------------
@@ -66,10 +67,11 @@ window.onload = function() {
   // ------------------------- Set Welcome Message -------------------------
   getUsername();  // Get current user's first name
   if (currentUser == null) {
-    userLink.innerHTML = "<span>Login</span>";
+    userLinkText.innerText = "Login";
     userLink.href = "signIn.html";
   } else {
-    userLink.innerHTML = "<span>Account</span>"
+    console.log('Else statement executed');
+    userLinkText.innerText = "Account";
     userLink.href = "account.html";
     }
   }
