@@ -601,3 +601,22 @@ body {
     min-width: 40px;
     min-height: 20px;
 }
+
+/* Booking Page */
+
+.continent-heading{
+    font-size: calc(45/12 * 1rem);
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+}
+
+.museum-name{
+    font-size: calc(30/12 * 1rem);
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+}
+
+.museum-description{
+    font-size: calc(16/12 * 1rem);
+    font-family: "Playfair Display", sans-serif;
+}
