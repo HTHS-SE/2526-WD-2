@@ -9,6 +9,8 @@
   import {getDatabase, ref, set, update, child, get}
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
 
+  import { onAuthStateChanged } from
+    "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -49,9 +51,31 @@ function getUsername() {
   }
 }
 
+const calendarEl = document.getElementById("calendar");
+  let calendar;
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) return;
+
+    calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: "dayGridMonth",
+      events: []
+    });
+
+    calendar.render();
+    /*
+    listenToEvents(user, (events) => {
+      calendar.removeAllEvents();
+      calendar.addEventSource(events);
+    });
+    */
+  })
+
 let currentUser = null;
 
 window.onload = function() {
     getUsername()
     document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
 }
+
+;
