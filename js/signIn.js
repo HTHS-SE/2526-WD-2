@@ -14,15 +14,19 @@
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
+
+  // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyC4AW_OHqs2s3dvtUDjdOKyFjCjKTmHIBY",
-    authDomain: "se-321-25260-firebase-demo.firebaseapp.com",
-    databaseURL: "https://se-321-25260-firebase-demo-default-rtdb.firebaseio.com",
-    projectId: "se-321-25260-firebase-demo",
-    storageBucket: "se-321-25260-firebase-demo.firebasestorage.app",
-    messagingSenderId: "748701381570",
-    appId: "1:748701381570:web:15a6638ce131a8d5071c5b"
-  };
+    apiKey: "AIzaSyD2xfIz6jMWHXnRpMW5afLkNYPZllbBDdc",
+    authDomain: "wd-2-fc227.firebaseapp.com",
+    databaseURL: "https://wd-2-fc227-default-rtdb.firebaseio.com",
+    projectId: "wd-2-fc227",
+    storageBucket: "wd-2-fc227.firebasestorage.app",
+    messagingSenderId: "31083722430",
+    appId: "1:31083722430:web:87e89224c22a69793450ef"
+    };
+
+  // Initialize Firebase
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -95,7 +99,7 @@ function logIn(user) {
     // Session storage will be cleared with a signOut() function in home.js
     if(!keepLoggedIn) {
         sessionStorage.setItem('user', JSON.stringify(user));
-        window.location = 'home.html';      // Redirect browser to home.html
+        window.location = 'account.html';      // Redirect browser to home.html
     }
 
     // Local storage is permanent (keep user logged in even if browser is closed)
@@ -103,6 +107,6 @@ function logIn(user) {
     else {
         localStorage.setItem('keepLoggedIn', 'yes');
         localStorage.setItem('user', JSON.stringify(user));
-        window.location = "home.html";
+        window.location = "account.html";
     }
 }
