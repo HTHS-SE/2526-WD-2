@@ -602,6 +602,7 @@ body {
     min-height: 20px;
 }
 
+<<<<<<< Updated upstream
 /* Booking Page */
 
 .continent-heading{
@@ -619,4 +620,5 @@ body {
 .museum-description{
     font-size: calc(16/12 * 1rem);
     font-family: "Playfair Display", sans-serif;
+=======
 }
