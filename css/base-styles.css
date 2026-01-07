@@ -631,6 +631,12 @@ body {
     font-family: "Playfair Display", sans-serif;
 }
 
+.table-museums{
+    font-size: calc(16/12 * 1rem);
+    font-family: "Playfair Display", sans-serif;
+}
+/* */
+
 .submitRegistration {
     display: flex;
 }
