@@ -649,3 +649,11 @@ body {
     align-items: center;
     margin-right: 220px;
 }
+
+/* Account Page */
+#calendar {
+    font-family: 'Public Sans', sans-serif;
+    background-color: #f8f9fa;
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
+}

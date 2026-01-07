@@ -37,7 +37,6 @@
   // Return instance of your app's firebase realtime database (FRD)
   const db = getDatabase(app);
 
-// ---------------------- Sign-In User ---------------------------------------//
 
 document.getElementById('signIn').onclick = function() {
 
@@ -110,3 +109,4 @@ function logIn(user) {
         window.location = "account.html";
     }
 }
+

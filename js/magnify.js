@@ -1,3 +1,4 @@
+/*
 function magnifyByClass(imgClass, zoom) {
   // Select all images with the given class (e.g., ".magnifiable")
   const imgs = document.querySelectorAll(`.${imgClass}`);
@@ -73,3 +74,4 @@ window.onload = function() {
   magnifyByClass("timeline-img", 2);
   magnifyByClass("index-img", 1.5);
 };
+*/

@@ -71,11 +71,28 @@ const calendarEl = document.getElementById("calendar");
     */
   })
 
-let currentUser = null;
 
+let userLink = document.getElementById('userLink');   // Username for navbar
+let userLinkText = document.getElementById('userLinkText');
+let currentUser = null; 
+
+// --------------------------- Home Page Loading -----------------------------
 window.onload = function() {
-    getUsername()
-    document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
-}
 
-;
+
+  
+  getUsername();  // Get current user's first name
+  
+  // Update navbar
+  if (currentUser == null) {
+    userLinkText.innerText = "Login";
+    userLink.href = "signIn.html";
+  } else {
+    //console.log('Else statement executed');
+    userLinkText.innerText = "Account";
+    userLink.href = "account.html";
+    }
+  
+  // Set Welcome Message
+  document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
+  }
