@@ -39,7 +39,7 @@
 
 // ---------------- Register New User --------------------------------//
 
-document.getElementById("submitData").onclick = function() {
+document.getElementById("signIn").onclick = function() {
   const firstName = document.getElementById("firstName").value;
   const lastName = document.getElementById("lastName").value;
   const email = document.getElementById("userEmail").value;
