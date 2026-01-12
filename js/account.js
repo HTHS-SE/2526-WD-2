@@ -51,6 +51,20 @@ function getUsername() {
   }
 }
 
+function SignOutUser() {
+  sessionStorage.removeItem('user');  // Clear session storage
+  localStorage.removeItem('user');     // Clear local storage
+  localStorage.removeItem('keepLoggedIn');
+
+  signOut(auth).then(() => {
+    // Sign out successful
+  }).catch((error) => {
+    // Error occurred
+  });
+
+  window.location = "index.html";
+}
+
 const calendarEl = document.getElementById("calendar");
   let calendar;
 
@@ -84,15 +98,14 @@ window.onload = function() {
   getUsername();  // Get current user's first name
   
   // Update navbar
-  if (currentUser == null) {
-    userLinkText.innerText = "Login";
-    userLink.href = "signIn.html";
-  } else {
-    //console.log('Else statement executed');
-    userLinkText.innerText = "Account";
-    userLink.href = "account.html";
-    }
   
+
+  userLinkText.innerText = "Sign Out";
+  userLink.href = "index.html";
+  this.document.getElementById('userLink').onclick = function() {
+      SignOutUser();
+  };
+
   // Set Welcome Message
   document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
   }
