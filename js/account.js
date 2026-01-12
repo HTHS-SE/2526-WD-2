@@ -65,6 +65,32 @@ function SignOutUser() {
   window.location = "index.html";
 }
 
+function getData(userID, year, month, day) {
+  let yearVal = document.getElementById('yearVal');
+  let monthVal = document.getElementById('monthVal');
+  let dayVal = document.getElementById('dayVal');
+  let tempVal = document.getElementById('tempVal');
+
+  const dbref = ref(db); // Firebase parameter for getting data
+  
+  // Provide the path through the nodes to the data
+  get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month))
+    .then((snapshot) => {
+      if (snapshot.exists) {
+        yearVal.textContent = year;
+        monthVal.textContent = month;
+        dayVal.textContent = day;
+
+        // To get specific values from the provided key: snapshot.val()[key]
+        tempVal.textContent = snapshot.val()[day];
+      } else {
+        alert("No data found");
+      }
+  }).catch((error) => {
+    alert('Unsuccessful, error: ' + error);
+  });
+}
+
 const calendarEl = document.getElementById("calendar");
   let calendar;
 
@@ -108,4 +134,14 @@ window.onload = function() {
 
   // Set Welcome Message
   document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
+
+  // Get Data Function
+  document.getElementById('get').onclick = function() {
+    const year = document.getElementById('getYear').value;
+    const month = document.getElementById('getMonth').value;
+    const day = document.getElementById('getDay').value;
+    const userID = currentUser.uid;
+
+    getData(userID, year, month, day);
+  }
   }

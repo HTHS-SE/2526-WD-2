@@ -123,6 +123,47 @@
             <header class="fw-bolder" id="accountHeading">Account</header>
         </div>
         <hr><br><br>
+        <div class="container">
+            <h2 class="subheader">Confirm My Booking</h2>
+            <p>Enter in the date and time to check your booking status:</p>
+            <form>
+                <label for="bookingDate">Booking Date:</label>
+                <input type="date" id="bookingDate" class="form-control mb-3 w-25">
+                <label for="bookingTime">Booking Time:</label>
+                <input type="time" id="bookingTime" class="form-control mb-3 w-25">
+                <button type="submit" class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton">Check Booking</button>
+            </form>
+            <table class="table visually-hidden">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Booking?</th>
+                        <th scope="col">Party Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><p id ="dateVal"></p></td>
+                        <td><p id ="timeVal"></td>
+                        <td><p id ="bookingVal"></td>
+                        <td><p id ="partySizeVal"></td>
+                    </tr>
+                </tbody>
+          </table>
+        </div>
+        <br><br>
+        <div class="container">
+            <h2 class="subheader">Remove a Booking</h2>
+            <p>Want to remove a booking? Please provide the details below:</p>
+            <form>
+                <label for="removeDate">Booking Date:</label>
+                <input type="date" id="removeDate" class="form-control mb-3 w-25">
+                <label for="removeTime">Booking Time:</label>
+                <input type="time" id="removeTime" class="form-control mb-3 w-25">
+                <button type="submit" class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton">Remove Booking</button>
+            </form>
+        </div>
         <div class="container d-flex flex-column align-items-center">
             <h2 class="subheader">My Upcoming Events</h2>
         </div>

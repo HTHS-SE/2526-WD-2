@@ -663,3 +663,8 @@ body {
     border: 1px solid var(--color-accent);
     border-radius: 5px;
 }
+
+.accountButton {
+    font-family: 'Public Sans', sans-serif;
+    color: #ffffff;
+}
