@@ -412,10 +412,103 @@
 
             <!-- Booking visit (user input)-->
             <section class="">
+                <div class="container border">
+                    <br><h2>Set & Update Data</h2><br>
+                    <ol class="list-group list-group-numbered notes">
+                        <li class="list-group-item border-0">Set - will completely overwrite all of the data stored at the node.</li>
+                        <li class="list-group-item border-0">Update - will only replace the fields that have changed at the node, or add new fields if they aren't present</li>
+                        <li class="list-group-item border-0">If you're editing a previous reservation, you probably want to use update.</li>
+                    </ol><br>
+                    
+                    <div class="container dataForm mb-5">
+                        <form>
+                            <select class="form-select mb-3" aria-label="Default select example" id="month">
+                                <option selected>Events</option>
+                                <option value="Jan">Jan</option>
+                                <option value="Feb">Feb</option>
+                                <option value="Mar">Mar</option>
+                            </select>
+                            <select class="form-select mb-3" aria-label="Default select example" id="year">
+                                <option selected>Museum Name</option>
+                                <option value="Musée d'Orsay">Musée d'Orsay</option>
+                                <option value="Musée Marmottan Monet">Musée Marmottan Monet</option>
+                                <option value="The Metropolitan Museum of Art">The Metropolitan Museum of Art</option>
+                                <option value="Art Institute of Chicago">Art Institute of Chicago</option>
+                            </select>
+                            <select class="form-select mb-3" aria-label="Default select example" id="year">
+                                <option selected>Trial (Year)</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                            </select>
+                            <select class="form-select mb-3" aria-label="Default select example" id="month">
+                                <option selected>Month</option>
+                                <option value="Jan">January</option>
+                                <option value="Feb">February</option>
+                                <option value="Mar">March</option>
+                                <option value="Apr">April</option>
+                                <option value="May">May</option>
+                                <option value="Jun">June</option>
+                                <option value="Jul">July</option>
+                                <option value="Aug">August</option>
+                                <option value="Sep">September</option>
+                                <option value="Oct">October</option>
+                                <option value="Nov">November</option>
+                                <option value="Dec">December</option>
+                            </select>
+                            <select class="form-select mb-3" aria-label="Default select example" id="day">
+                                <option selected>Day</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <label for="range4" class="form-label">Number of people in your party</label>
+                            <input type="range" class="form-range" min="0" max="16" value="50" id="range4">
+                            <output for="range4" id="rangeValue" aria-hidden="true"></output>
+                            <script>
+                                // This is an example script, please modify as needed
+                                const rangeInput = document.getElementById('range4');
+                                const rangeOutput = document.getElementById('rangeValue');
 
-            </section>
+                                // Set initial value
+                                rangeOutput.textContent = rangeInput.value;
 
-        </div>
+                                rangeInput.addEventListener('input', function() {
+                                    rangeOutput.textContent = this.value;
+                                });
+                            </script>
+                            <button type = "button" id="set" name="set" class="btn btn-outline-primary mb-3 w-100">Set</button>
+                            <button type = "button" id="update" name="update" class="btn btn-outline-secondary mb-3 w-100">Update</button>
+                        </form>       
+                    </div>
+                </div><br>
 
         <!-- Footer -->
         <footer
