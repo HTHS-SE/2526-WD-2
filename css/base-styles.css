@@ -649,6 +649,17 @@ body {
     font-weight: bold;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  color: #ff5757; /* icon color */
+  text-shadow:
+    0 0 10px #fff,
+    0 0 14px #fff,
+    0 0 16px #fff;
+  height: 6rem;
+  width: 6rem;
+}
+
 /* */
 
 .submitRegistration {
