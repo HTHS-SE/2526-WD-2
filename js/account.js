@@ -104,6 +104,10 @@ async function getMonthCounts(year, uid) {
 
   const monthCounts = {};
 
+  for (let m = 1; m <= 12; m++) {
+    monthCounts[monthNumberToName(m)] = 0;
+  }
+
   if (snapshot.exists()) {
     
     snapshot.forEach((monthSnap) => {
@@ -121,106 +125,58 @@ async function getMonthCounts(year, uid) {
 
 
 async function createChart(year, uid) {
-    const data = await getMonthCounts(year, uid); // createChart will wait for getData() to process the CSV file
-    const lineChart = document.getElementById('lineChart');
-    const myChart = new Chart(lineChart, {  // Construct the chart    
-        type: 'line',
-        data: {                         // Define data
-            labels: data.xYears,        // x-axis labels
-            datasets: [                 // Each object describes one dataset of y-values
-                                        //  including display properties.  To add more datasets, 
-                                        //  place a comma after the closing curly brace of the last
-                                        //  data set object and add another dataset object. 
-                {
-                    label:    `Combined Global LSA and SSW Temperature in ${degreeSymbol}C`,     // Dataset label for legend
-                    data:     data.yTemps,    
-                    fill:     false,           // Fill area under the linechart (true = yes, false = no)
-                    backgroundColor:  'rgba(255, 0, 132, 0.2)',    // Color for data marker
-                    borderColor:      'rgba(255, 0, 132, 1)',      // Color for data marker border
-                    borderWidth:      1   // Data marker border width
-                },
-                {
-                    label:    `Combined NH LSA and SSW Temperature in ${degreeSymbol}C`,     // Dataset label for legend
-                    data:     data.yNHtemps,    
-                    fill:     false,           // Fill area under the linechart (true = yes, false = no)
-                    backgroundColor:  'rgba(0, 102, 255, 0.2)',    // Color for data marker
-                    borderColor:      'rgba(0, 102, 255, 1)',      // Color for data marker border
-                    borderWidth:      1   // Data marker border width
-                },
-                {
-                    label:    `Combined SH LSA and SSW Temperature in ${degreeSymbol}C`,     // Dataset label for legend
-                    data:     data.ySHtemps,    
-                    fill:     false,           // Fill area under the linechart (true = yes, false = no)
-                    backgroundColor:  'rgba(0, 153, 51, 0.2)',    // Color for data marker
-                    borderColor:      'rgba(0, 153, 51, 1)',      // Color for data marker border
-                    borderWidth:      1   // Data marker border width
-                },
-        ]
+    console.log("createChart ran");
+    const data = await getMonthCounts(year, uid);
+    const barChart = document.getElementById('bookingMonths');
+    const myChart = new Chart(barChart, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(data),
+            datasets: [{
+                label: 'Number of Bookings',
+                data: Object.values(data),
+                borderWidth: 1,
+                backgroundColor: '#ff5757',
+                borderColor: '#FFC0CB',
+            }]
         },
-        options: {                        // Define display chart display options 
-            responsive: true,             // Re-size based on screen size
-            maintainAspectRatio: false,
-            scales: {                     // Display options for x & y axes
-                x: {                      // x-axis properties
+        options: {
+            scales: {
+                x: {
                     title: {
                         display: true,
-                        text: 'Year',     // x-axis title
-                        font: {                   // font properties
-                            size: 14
-                        },
-                    },
-                    ticks: {                      // x-axis tick mark properties
-                        callback: function(value, index) {
-                            // Set tick marks at every 5 years
-                            return index % 5 === 0 ? this.getLabelForValue(value) : '';
-                        },
-                        font: {
-                            size: 14
-                        },
-                    },
-                    grid: {                       // x-axis grid properties
-                        color: '#6c767e'
+                        text: 'Month'
                     }
                 },
-                y: {                              // y-axis properties
+                y: {
+                    beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Global Mean Temperatures (°C)',     // y-axis title
-                        font: {
-                            size: 14
-                        },
+                        text: 'Number of Bookings'
                     },
                     ticks: {
-                        min: 0,
-                        maxTicksLimit: data.yTemps.length / 10,        // Actual value can be set dynamically
-                        font: {
-                            size: 12
-                        }
-                    },
-                    grid: {                       // y-axis gridlines
-                        color: '#6c767e'
+                      stepSize: 1
                     }
                 }
             },
-            plugins: {                  // Display options for title and legend
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    align: 'center',
+                    position: 'bottom',
+                },
                 title: {
                     display: true,
-                    text: 'Global Mean Temperature vs. Year (since 1880)',
+                    text: `Your Bookings in ${year}`,
                     font: {
-                        size: 24,
-                    },
-                    color: '#black',
-                    padding: {
-                        top: 10,
-                        bottom: 30
+                        size: 32,
+                        fontFamily: 'Playfair Display',
+                        color: '#ff5757',
                     }
-                },
-                legend: {
-                    align: 'start',
-                    position: 'bottom',
                 }
             }
-        }       
+        },
     });
 
 }
@@ -263,7 +219,7 @@ window.onload = function() {
 
   // Get user id for getMonthCounts
   const userID = currentUser.uid;
-  console.log(getMonthCounts("2026", userID));
+  createChart("2026", userID);
 
 
 }

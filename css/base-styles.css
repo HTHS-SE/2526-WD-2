@@ -704,3 +704,7 @@ body {
     font-family: 'Public Sans', sans-serif;
     color: #ffffff;
 }
+
+.accountChart {
+    max-height: 500px;
+}
