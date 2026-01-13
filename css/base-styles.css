@@ -660,6 +660,17 @@ body {
   width: 6rem;
 }
 
+.booking-goto {
+    width: 1000px;
+    height: 100px;
+    padding: 20px;
+    margin: 6rem;
+    text-align: center;
+    color: white;
+    background: #1a1919;
+    border-radius: 15px;
+}
+
 /* */
 
 .submitRegistration {
