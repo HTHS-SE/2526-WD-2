@@ -91,25 +91,8 @@ function getData(userID, year, month, day) {
   });
 }
 
-const calendarEl = document.getElementById("calendar");
-  let calendar;
 
-  onAuthStateChanged(auth, (user) => {
-    if (!user) return;
 
-    calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: "dayGridMonth",
-      events: []
-    });
-
-    calendar.render();
-    /*
-    listenToEvents(user, (events) => {
-      calendar.removeAllEvents();
-      calendar.addEventSource(events);
-    });
-    */
-  })
 
 
 let userLink = document.getElementById('userLink');   // Username for navbar
@@ -136,6 +119,7 @@ window.onload = function() {
   document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
 
   // Get Data Function
+  /*
   document.getElementById('get').onclick = function() {
     const year = document.getElementById('getYear').value;
     const month = document.getElementById('getMonth').value;
@@ -143,5 +127,9 @@ window.onload = function() {
     const userID = currentUser.uid;
 
     getData(userID, year, month, day);
-  }
-  }
+  */
+
+  
+    }
+
+
