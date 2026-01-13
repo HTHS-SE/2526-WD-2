@@ -130,6 +130,35 @@ function magnifyByClass(imgClass, zoom) {
   });
 }
 
+function setData(userID, museum, year, month, day, party){
+  // Must use brackets around variable name to use it as a key
+  console.log("Set data ran");
+  set(ref(db, 'users/' + userID + '/data/' + museum + '/' + year + '/' + month),{
+    [day]: party
+  })
+  .then(() => {
+    alert("Data stored successfully!");
+  })
+  .catch((error) => {
+    alert("There was an error. Error: " + error)
+  });
+}
+
+// -------------------------Update data in database --------------------------
+function updateData(userID, event, museum, year, month, day, party){
+  // Must use brackets around variable name to use it as a key
+  // Appends data to the month instead of wiping the month's information (setData)
+  update(ref(db, 'users/' + userID + '/data/' + event + '/' + museum + '/' + year + '/' + month),{
+    [day]: party
+  })
+  .then(() => {
+    alert("Data stored successfully!");
+  })
+  .catch((error) => {
+    alert("There was an error. Error: " + error)
+  });
+}
+
 // ---------------------// Get reference values -----------------------------
 
 let userLink = document.getElementById('userLink');   // Username for navbar
@@ -138,7 +167,7 @@ let currentUser = null;
 
 // --------------------------- Home Page Loading -----------------------------
 window.onload = function() {
-
+  console.log("Nav bar update onload function ran");
 
   // ------------------------- Set Welcome Message -------------------------
   getUsername();  // Get current user's first name
@@ -155,4 +184,60 @@ window.onload = function() {
   // Run magnify function
   magnifyByClass("timeline-img", 2);
   magnifyByClass("index-img", 1.5);
+
+  console.log("On load function ran");
+  // Set and Update Reservation Data in FRD
+  // Set (Insert) data function call
+  document.getElementById('set').onclick = function(){
+    console.log("Set button clicked");
+    const museum = document.getElementById('museum').value;
+    const year = document.getElementById('year').value;
+    const month = document.getElementById('month').value;
+    const day = document.getElementById('day').value;
+    const party = document.getElementById('party').value;
+    const userID = currentUser.uid;
+
+    setData(userID, museum, year, month, day, party);
+  };
+
+  // Update data function call
+  document.getElementById('update').onclick = function(){
+    const museum = document.getElementById('museum').value;
+    const year = document.getElementById('year').value;
+    const month = document.getElementById('month').value;
+    const day = document.getElementById('day').value;
+    const party = document.getElementById('party').value;
+    const userID = currentUser.uid;
+
+    updateData(userID, museum, year, month, day, party)
+  }
+
+//   // Get a datum function call
+//   document.getElementById('get').onclick = function(){
+//     const year = document.getElementById('getYear').value;
+//     const month = document.getElementById('getMonth').value;
+//     const day = document.getElementById('getDay').value;
+//     const userID = currentUser.uid;
+
+//     getData(userID, year, month, day)
+//   }
+
+//   // Get a data set function call
+//   document.getElementById('getDataSet').onclick = function(){
+//     const year = document.getElementById('getSetYear').value;
+//     const month = document.getElementById('getSetMonth').value;
+//     const userID = currentUser.uid;
+
+//     getDataSet(userID, year, month);
+//   }
+
+//   // Delete a single day's data function call
+//   this.document.getElementById('delete').onclick = function(){
+//     const year = document.getElementById('delYear').value;
+//     const month = document.getElementById('delMonth').value;
+//     const day = document.getElementById('delDay').value;
+//     const userID = currentUser.uid;
+
+//     deleteData(userID, year, month, day);
+//   };
   }
