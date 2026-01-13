@@ -164,9 +164,9 @@ function updateData(userID, museum, date, time, party){
 // ----------------------Get a datum from FRD (single data point)---------------
 function getData(userID, date, time){
 
-  let dateVal = document.getElementById('date')
-  let timeVal = document.getElementById('timeVal')
-  // let bookingVal = document.getElementById('bookingVal')
+  let dateVal = document.getElementById('bookingDate')
+  let MuseumVal = document.getElementById('museumVal')
+  let timeVal = document.getElementById('bookingTime')
   let partySizeVal = document.getElementById('partySizeVal')
  
   const dbref = ref(db)     // Firebase parameter for getting data
@@ -176,11 +176,11 @@ function getData(userID, date, time){
   .then((snapshot) => {
 
     if(snapshot.exists()){
+      dateVal = date;
+      museumVal = museum;
+      timeVal = time;
       // To get specific value from the provided key: snapshot.val()[key]
-      timeVal.textContent = snapshot.val()[time]
-      // bookingVal.textContent = 
-      partySizeVal.textContent = 0;
-      
+      partySizeVal.textContent = snapshot.val()[time]
     }
     else{
       alert('No data found')
@@ -195,7 +195,7 @@ function getData(userID, date, time){
 // ---------------------------Get a month's data set --------------------------
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
-async function getDataSet(userID, day){
+async function getDataSet(userID, day, time){
 
   let dateVal = document.getElementById('bookingDate');
 
@@ -253,8 +253,8 @@ function addItemToTable(day, temp, tbody){
 }
 
 // -------------------------Delete a day's data from FRD ---------------------
-function deleteData(userID, year, month, day){
-  remove(ref(db, 'users/' + userID + '/data/' + year + '/' + month + '/' + day))
+function deleteData(userID, year, time){
+  remove(ref(db, 'users/' + userID + '/data/' + museum + '/' + dateVal.substring(0, 4) + '/' + dateVal.substring(5, 7) + '/' + dateVal.substring(8, 10)))
   .then(() => {
     alert('Data removed successfully');
   })
@@ -317,12 +317,12 @@ window.onload = function() {
 
   // Get a datum function call
   document.getElementById('get').onclick = function(){
-    const year = document.getElementById('getYear').value;
-    const month = document.getElementById('getMonth').value;
+    const date = document.getElementById('bookingDate').value;
+    const time = document.getElementById('bookingTime').value;
     const day = document.getElementById('getDay').value;
     const userID = currentUser.uid;
 
-    getData(userID, year, month, day)
+    getData(userID, date, time)
   }
 
   // Get a data set function call
