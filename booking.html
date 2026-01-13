@@ -54,6 +54,7 @@
 
         <!-- Basic Functions Script -->
         <script src="js/basic-functions.js" defer></script>
+        <script type="module" src="js/booking.js" defer></script>  <!-- Firebase requires type = "module" -->
 
         <!-- Magnify Script -->
         <script src="js/magnify.js" defer></script>
@@ -422,13 +423,13 @@
                     
                     <div class="container dataForm mb-5">
                         <form>
-                            <select class="form-select mb-3" aria-label="Default select example" id="month">
+                            <select class="form-select mb-3" aria-label="Default select example" id="event">
                                 <option selected>Events</option>
                                 <option value="Jan">Jan</option>
                                 <option value="Feb">Feb</option>
                                 <option value="Mar">Mar</option>
                             </select>
-                            <select class="form-select mb-3" aria-label="Default select example" id="year">
+                            <select class="form-select mb-3" aria-label="Default select example" id="museum">
                                 <option selected>Museum Name</option>
                                 <option value="Musée d'Orsay">Musée d'Orsay</option>
                                 <option value="Musée Marmottan Monet">Musée Marmottan Monet</option>
@@ -490,11 +491,11 @@
                                 <option value="31">31</option>
                             </select>
                             <label for="range4" class="form-label">Number of people in your party</label>
-                            <input type="range" class="form-range" min="0" max="16" value="50" id="range4">
+                            <input type="range" class="form-range" min="0" max="16" value="50" id="party">
                             <output for="range4" id="rangeValue" aria-hidden="true"></output>
                             <script>
                                 // This is an example script, please modify as needed
-                                const rangeInput = document.getElementById('range4');
+                                const rangeInput = document.getElementById('party');
                                 const rangeOutput = document.getElementById('rangeValue');
 
                                 // Set initial value
