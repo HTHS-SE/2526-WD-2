@@ -649,6 +649,28 @@ body {
     font-weight: bold;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  color: #ff5757; /* icon color */
+  text-shadow:
+    0 0 10px #fff,
+    0 0 14px #fff,
+    0 0 16px #fff;
+  height: 6rem;
+  width: 6rem;
+}
+
+.booking-goto {
+    width: 1000px;
+    height: 100px;
+    padding: 20px;
+    margin: 6rem;
+    text-align: center;
+    color: white;
+    background: #1a1919;
+    border-radius: 15px;
+}
+
 /* */
 
 .submitRegistration {
