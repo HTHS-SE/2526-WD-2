@@ -637,7 +637,17 @@ body {
     font-size: calc(16/12 * 1rem);
     font-family: "Playfair Display", sans-serif;
 }
-
+.jump-to {
+    font-size: calc(18/12 *1rem);
+    font-family: "DM Sans", "sans-serif";
+}
+.jump-to-heading {
+    color: gray;
+}
+.jump-to-continent {
+    color: #ff5757 !important;
+    font-weight: bold;
+}
 
 /* */
 
