@@ -617,12 +617,14 @@ body {
 .continent-heading{
     font-size: calc(45/12 * 1rem);
     font-family: "DM Sans", sans-serif;
+    margin-top: 20px;
     font-weight: bold;
 }
 
 .museum-name{
     font-size: calc(30/12 * 1rem);
     font-family: "DM Sans", sans-serif;
+    margin-top: 18px;
     font-weight: bold;
 }
 
@@ -635,6 +637,8 @@ body {
     font-size: calc(16/12 * 1rem);
     font-family: "Playfair Display", sans-serif;
 }
+
+
 /* */
 
 .submitRegistration {
