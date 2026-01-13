@@ -130,13 +130,14 @@ function magnifyByClass(imgClass, zoom) {
   });
 }
 
-function setData(userID, museum, year, month, day, party){
+function setData(userID, museum, date, time, party){
   // Must use brackets around variable name to use it as a key
   console.log("Set data ran");
-  set(ref(db, 'users/' + userID + '/data/' + museum + '/' + year + '/' + month),{
-    [day]: party
+  set(ref(db, 'users/' + userID + '/data/' + museum + '/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10)),{
+    [time]: party
   })
   .then(() => {
+    console.log("Data stored successfully!");
     alert("Data stored successfully!");
   })
   .catch((error) => {
@@ -145,11 +146,11 @@ function setData(userID, museum, year, month, day, party){
 }
 
 // -------------------------Update data in database --------------------------
-function updateData(userID, event, museum, year, month, day, party){
+function updateData(userID, museum, date, time, party){
   // Must use brackets around variable name to use it as a key
   // Appends data to the month instead of wiping the month's information (setData)
-  update(ref(db, 'users/' + userID + '/data/' + event + '/' + museum + '/' + year + '/' + month),{
-    [day]: party
+  update(ref(db, 'users/' + userID + '/data/' + museum + '/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10)),{
+    [time]: party
   })
   .then(() => {
     alert("Data stored successfully!");
@@ -191,26 +192,25 @@ window.onload = function() {
   document.getElementById('set').onclick = function(){
     console.log("Set button clicked");
     const museum = document.getElementById('museum').value;
-    const year = document.getElementById('year').value;
-    const month = document.getElementById('month').value;
-    const day = document.getElementById('day').value;
     const party = document.getElementById('party').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
     const userID = currentUser.uid;
 
-    setData(userID, museum, year, month, day, party);
+    setData(userID, museum, date, time, party);
   };
 
   // Update data function call
   document.getElementById('update').onclick = function(){
+    console.log("Set button clicked");
     const museum = document.getElementById('museum').value;
-    const year = document.getElementById('year').value;
-    const month = document.getElementById('month').value;
-    const day = document.getElementById('day').value;
     const party = document.getElementById('party').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
     const userID = currentUser.uid;
 
-    updateData(userID, museum, year, month, day, party)
-  }
+    updateData(userID, museum, date, time, party);
+  };
 
 //   // Get a datum function call
 //   document.getElementById('get').onclick = function(){

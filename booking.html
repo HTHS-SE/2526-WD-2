@@ -440,14 +440,10 @@
 
             <!-- Booking visit (user input)-->
             <section class="">
-                <div class="container border">
-                    <br><h2>Set & Update Data</h2><br>
-                    <ol class="list-group list-group-numbered notes">
-                        <li class="list-group-item border-0">Set - will completely overwrite all of the data stored at the node.</li>
-                        <li class="list-group-item border-0">Update - will only replace the fields that have changed at the node, or add new fields if they aren't present</li>
-                        <li class="list-group-item border-0">If you're editing a previous reservation, you probably want to use update.</li>
-                    </ol><br>
-                    
+                <div class="container">
+                    <br><header>Book Now!</header><br>
+                    <h2 class="subheader">Enter in the details below:</h2>
+
                     <div class="container dataForm mb-5">
                         <form>
                             <select class="form-select mb-3" aria-label="Default select example" id="museum">
@@ -457,11 +453,16 @@
                                 <option value="The Metropolitan Museum of Art">The Metropolitan Museum of Art</option>
                                 <option value="Art Institute of Chicago">Art Institute of Chicago</option>
                             </select>
+                            <!--
                             <select class="form-select mb-3" aria-label="Default select example" id="year">
                                 <option selected>Trial (Year)</option>
                                 <option value="2026">2026</option>
                                 <option value="2027">2027</option>
                             </select>
+                        -->
+                            <input type="date" class="form-control mb-3" id="date">
+                            <input type="time" class="form-control mb-3" id="time">
+                            <!--
                             <select class="form-select mb-3" aria-label="Default select example" id="month">
                                 <option selected>Month</option>
                                 <option value="Jan">January</option>
@@ -511,6 +512,7 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
+                            -->
                             <label for="range4" class="form-label">Number of people in your party</label>
                             <input type="range" class="form-range" min="0" max="16" value="50" id="party">
                             <output for="range4" id="rangeValue" aria-hidden="true"></output>
