@@ -6,7 +6,7 @@
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-  import {getDatabase, ref, set, update, child, get}
+  import {getDatabase, ref, set, update, child, get, onValue}
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
 
   import { onAuthStateChanged } from
@@ -98,7 +98,6 @@ function monthNumberToName(monthNumber) {
 }
 
 async function getMonthCounts(year, uid) {
-  console.log("getMonthCounts ran");
   const yearRef = ref(db, `users/${uid}/data/${year}`);
   const snapshot = await get(yearRef);
 
@@ -117,7 +116,6 @@ async function getMonthCounts(year, uid) {
       const dayCount = value ? Object.keys(value).length : 0;
 
       monthCounts[month] = dayCount;
-      console.log(month, dayCount);
     });
   }
   return monthCounts;
@@ -125,7 +123,6 @@ async function getMonthCounts(year, uid) {
 
 
 async function createChart(year, uid) {
-    console.log("createChart ran");
     const data = await getMonthCounts(year, uid);
     const barChart = document.getElementById('bookingMonths');
     const myChart = new Chart(barChart, {
@@ -181,6 +178,49 @@ async function createChart(year, uid) {
 
 }
 
+function listenToEvents(user, year, callback) {
+  console.log("listening to events")
+  const yearRef = ref(db, `users/${user.uid}/data/${year}`);
+
+  // Iterate through the nodes and pull out all the values
+  onValue(yearRef, (snapshot) => {
+    const events = [];
+
+    if (snapshot.exists()) {
+      // Go from year to month
+      snapshot.forEach(monthSnap => {
+        const month = monthSnap.key; 
+        // Month to day
+        monthSnap.forEach(daySnap => {
+          const day = daySnap.key; 
+          // Day to museum (location)
+          daySnap.forEach(locationSnap => {
+            // Location to time
+            locationSnap.forEach(timeSnap => {
+              const time = timeSnap.key; 
+
+              // Year-Month-DayTHour:Minute (turn all the values into calendar format)
+              const startDate = `${year}-${month}-${day}T${time}`;
+              
+              const details = timeSnap.val() || {};
+              
+              // Push all the details to the events dictionary
+              events.push({
+                id: `${year}-${month}-${day}-${locationSnap.key}-${time}`, 
+                title: locationSnap.key,
+                start: startDate,
+                allDay: false,
+                extendedProps: details
+              });
+            });
+          });
+        });
+      });
+    }
+
+    callback(events);
+  });
+}
 
 
 
@@ -190,8 +230,6 @@ let currentUser = null;
 
 // --------------------------- Home Page Loading -----------------------------
 window.onload = function() {
-  console.log("Account page onload function ran");
-  getMonthCounts();
 
   
   getUsername();  // Get current user's first name
@@ -217,9 +255,31 @@ window.onload = function() {
     getData(userID, year, month, day);
   */
 
-  // Get user id for getMonthCounts
+  // Get user id for the chart
   const userID = currentUser.uid;
   createChart("2026", userID);
 
+
+  const calendarEl = document.getElementById("calendar");
+  let calendar;
+
+  onAuthStateChanged(auth, (user) => {
+    console.log("User state changed");
+    if (!user) return;
+
+    const year = new Date().getFullYear(); // show current year
+
+    calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: "dayGridMonth",
+      events: []
+    });
+
+    calendar.render();
+
+    listenToEvents(user, year, (events) => {
+      calendar.removeAllEvents();
+      calendar.addEventSource(events);
+    });
+  });
 
 }
