@@ -133,7 +133,7 @@ function magnifyByClass(imgClass, zoom) {
 function setData(userID, museum, date, time, party){
   // Must use brackets around variable name to use it as a key
   console.log("Set data ran");
-  set(ref(db, 'users/' + userID + '/data/' + museum + '/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10)),{
+  set(ref(db, 'users/' + userID + '/data/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10) + '/' + museum),{
     [time]: party
   })
   .then(() => {
@@ -149,7 +149,7 @@ function setData(userID, museum, date, time, party){
 function updateData(userID, museum, date, time, party){
   // Must use brackets around variable name to use it as a key
   // Appends data to the month instead of wiping the month's information (setData)
-  update(ref(db, 'users/' + userID + '/data/' + museum + '/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10)),{
+  update(ref(db, 'users/' + userID + '/data/' + museum + '/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10) + '/' + museum),{
     [time]: party
   })
   .then(() => {
