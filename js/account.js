@@ -91,10 +91,6 @@ function getData(userID, year, month, day) {
   });
 }
 
-
-
-
-
 let userLink = document.getElementById('userLink');   // Username for navbar
 let userLinkText = document.getElementById('userLinkText');
 let currentUser = null; 

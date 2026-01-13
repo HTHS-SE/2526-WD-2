@@ -160,6 +160,109 @@ function updateData(userID, museum, date, time, party){
   });
 }
 
+
+// ----------------------Get a datum from FRD (single data point)---------------
+function getData(userID, date, time){
+
+  let dateVal = document.getElementById('date')
+  let timeVal = document.getElementById('timeVal')
+  // let bookingVal = document.getElementById('bookingVal')
+  let partySizeVal = document.getElementById('partySizeVal')
+ 
+  const dbref = ref(db)     // Firebase parameter for getting data
+
+  // Provide the path through the nodes to the data
+  get(child(dbref, 'users/' + userID + '/data/' + museum + '/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10) + '/' + museum ))
+  .then((snapshot) => {
+
+    if(snapshot.exists()){
+      // To get specific value from the provided key: snapshot.val()[key]
+      timeVal.textContent = snapshot.val()[time]
+      // bookingVal.textContent = 
+      partySizeVal.textContent = 0;
+      
+    }
+    else{
+      alert('No data found')
+    }
+  })
+  .catch((error) => {
+    alert('Unsuccessful, error: ' + error)
+  });
+}
+
+
+// ---------------------------Get a month's data set --------------------------
+// Must be an async function because you need to get all the data from FRD
+// before you can process it for a table or graph
+async function getDataSet(userID, day){
+
+  let dateVal = document.getElementById('bookingDate');
+
+  dateVal.textContent = `Date: ${day}`;
+
+  const days = [];
+  const temps = [];
+  const tbodyEl = document.getElementById('tbody');     // Select <tbody> element
+
+  const dbref = ref(db);    // Firebase parameter to access database
+
+  // Wait for all data to be pulled from FRD
+  // Must provide the path through the nodes to the data
+  await get(child(dbref, 'users/' + userID + '/data/' + museum + '/' + dateVal.substring(0, 4) + '/' + dateVal.substring(5, 7) + '/' + dateVal.substring(8, 10))).then((snapshot) => {
+
+    if(snapshot.exists()){
+      console.log(snapshot.val())
+
+      snapshot.forEach(child => {
+        console.log(child.key, child.val())
+        // Push values to the corresponding arrays
+        days.push(child.key);
+        temps.push(child.val());
+      })
+    }
+    else{
+      alert('No data found')
+    }
+  })
+  .catch((error) => {
+    alert('unsuccessful, error: ' + error);
+  })
+
+  // Dynamically add table rows to HTML using string interpolation
+  tbodyEl.innerHTML = '';       // Clear any existing table
+  for(let i = 0; i < days.length; i++){
+    addItemToTable(days[i], temps[i], tbodyEl)
+  }
+}
+
+// Add a item to the table of data
+function addItemToTable(day, temp, tbody){
+  console.log(day, temp);
+  let tRow = document.createElement("tr")
+  let td1 = document.createElement("td")
+  let td2 = document.createElement("td")
+
+  td1.innerHTML = day;
+  td2.innerHTML = temp;
+
+  tRow.appendChild(td1);
+  tRow.appendChild(td2);
+
+  tbody.append(tRow);
+}
+
+// -------------------------Delete a day's data from FRD ---------------------
+function deleteData(userID, year, month, day){
+  remove(ref(db, 'users/' + userID + '/data/' + year + '/' + month + '/' + day))
+  .then(() => {
+    alert('Data removed successfully');
+  })
+  .catch((error) => {
+    alert('Unsuccessful, error: '+ error)
+  })
+}
+
 // ---------------------// Get reference values -----------------------------
 
 let userLink = document.getElementById('userLink');   // Username for navbar
@@ -212,32 +315,32 @@ window.onload = function() {
     updateData(userID, museum, date, time, party);
   };
 
-//   // Get a datum function call
-//   document.getElementById('get').onclick = function(){
-//     const year = document.getElementById('getYear').value;
-//     const month = document.getElementById('getMonth').value;
-//     const day = document.getElementById('getDay').value;
-//     const userID = currentUser.uid;
+  // Get a datum function call
+  document.getElementById('get').onclick = function(){
+    const year = document.getElementById('getYear').value;
+    const month = document.getElementById('getMonth').value;
+    const day = document.getElementById('getDay').value;
+    const userID = currentUser.uid;
 
-//     getData(userID, year, month, day)
-//   }
+    getData(userID, year, month, day)
+  }
 
-//   // Get a data set function call
-//   document.getElementById('getDataSet').onclick = function(){
-//     const year = document.getElementById('getSetYear').value;
-//     const month = document.getElementById('getSetMonth').value;
-//     const userID = currentUser.uid;
+  // Get a data set function call
+  document.getElementById('getDataSet').onclick = function(){
+    const year = document.getElementById('getSetYear').value;
+    const month = document.getElementById('getSetMonth').value;
+    const userID = currentUser.uid;
 
-//     getDataSet(userID, year, month);
-//   }
+    getDataSet(userID, year, month);
+  }
 
-//   // Delete a single day's data function call
-//   this.document.getElementById('delete').onclick = function(){
-//     const year = document.getElementById('delYear').value;
-//     const month = document.getElementById('delMonth').value;
-//     const day = document.getElementById('delDay').value;
-//     const userID = currentUser.uid;
+  // Delete a single day's data function call
+  this.document.getElementById('delete').onclick = function(){
+    const year = document.getElementById('delYear').value;
+    const month = document.getElementById('delMonth').value;
+    const day = document.getElementById('delDay').value;
+    const userID = currentUser.uid;
 
-//     deleteData(userID, year, month, day);
-//   };
+    deleteData(userID, year, month, day);
+  };
   }
