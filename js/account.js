@@ -260,6 +260,7 @@ window.onload = function() {
   createChart("2026", userID);
 
 
+  // Set up the calendar
   const calendarEl = document.getElementById("calendar");
   let calendar;
 
@@ -267,7 +268,7 @@ window.onload = function() {
     console.log("User state changed");
     if (!user) return;
 
-    const year = new Date().getFullYear(); // show current year
+    const year = new Date().getFullYear();
 
     calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: "dayGridMonth",
