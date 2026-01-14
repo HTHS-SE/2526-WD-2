@@ -160,6 +160,96 @@ function updateData(userID, museum, date, time, party){
   });
 }
 
+function checkValidDateAndTime(museum, year, month, day, time) {
+  const currentDate = new Date();
+  const inputDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+  if (inputDate < currentDate) {
+    alert("Please input a valid date in the future.");
+    return false;
+  }
+  if (museum === "Musée d'Orsay") {
+    if (inputDate.getDay() === 4) {
+      if (!("09:30" < time && time < "21:45")) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false
+      }
+    } else {
+      if (!("09:30" < time && time < "18:00")) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false
+      }
+    }
+    if (isSpecificDay(inputDate, 3, 1) || isSpecificDay(inputDate, 11, 25) || inputDate.getDay() === 1) {
+      alert(`${museum} is not open on the day you chose.`)
+      return false;
+    }
+  } else if (museum === "Musée Marmottan Monet") {
+    if (inputDate.getDay() === 4) {
+      if (!("10:00" < time && time < "21:00")) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false
+      }
+    } else {
+      if (!("10:00" < time && time < "18:00")) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false
+      }
+    }
+    if (inputDate.getDay() === 1 || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 0, 1) || isSpecificDay(inputDate, 4, 1)) {
+      alert(`${museum} is not open on the day you chose.`)
+      return false;
+    }
+  } else if (museum === "The Metropolitan Museum of Art") {
+    if (inputDate.getDay() === 5 || inputDate.getDay() === 6) {
+      if (!("10:00" < time && "21:00" < time)) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false;
+      }
+      } else {
+        if (!("10:00" < time && time < "17:00")) {
+          alert(`${museum} is not open at the time you chose.`)
+          return false
+        }
+      }
+
+    if (isSpecificDay(inputDate, 0, 1) || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26) || isFirstMondayOfMay(inputDate)) {
+      alert(`${museum} is not open on the day you chose.`)
+      return false;
+    }
+  } else {
+    if (inputDate.getDay() === 4) {
+      if (!("11:00" < time && time < "20:00")) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false
+      } else {
+        if (!("11:00" < time && time < "17:00")) {
+          alert(`${museum} is not open at the time you chose.`)
+          return false
+        }
+      }
+      if (isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26) || inputDate.getDay() === 2) {
+        alert(`${museum} is not open on the day you chose.`)
+        return false;
+      }
+  }
+  return true;
+}
+}
+
+function isSpecificDay(date, month, day) {
+  return date.getMonth() === month && date.getDate() === day;
+}
+
+function isFirstMondayOfMay(date) {
+  const d = new Date(date); // allow passing string or Date
+
+  const isMay = d.getMonth() === 4;      // May = 4 (0-based)
+  const isMonday = d.getDay() === 1;     // Monday = 1
+  const isFirstWeek = d.getDate() <= 7;  // 1–7
+
+  return isMay && isMonday && isFirstWeek;
+}
+
 
 // ----------------------Get a datum from FRD (single data point)---------------
 function getData(userID, date, time){
@@ -300,7 +390,12 @@ window.onload = function() {
     const time = document.getElementById('time').value;
     const userID = currentUser.uid;
 
-    setData(userID, museum, date, time, party);
+    if (museum === "Museum Name") {
+      alert("Please input a valid museum name.");
+    } else if (checkValidDateAndTime(museum, date.substring(0, 4), date.substring(5, 7), date.substring(8, 10), time) == false) {
+    } else {
+      setData(userID, museum, date, time, party);
+    }
   };
 
   // Update data function call
@@ -311,36 +406,12 @@ window.onload = function() {
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
     const userID = currentUser.uid;
-
-    updateData(userID, museum, date, time, party);
+    if (museum === "Museum Name") {
+      alert("Please input a valid museum name.");
+    } else if (checkValidDateAndTime(museum, date.substring(0, 4), date.substring(5, 7), date.substring(8, 10), time) == false) {
+    } else {
+      updateData(userID, museum, date, time, party);
+    }
   };
 
-  // Get a datum function call
-  document.getElementById('get').onclick = function(){
-    const date = document.getElementById('bookingDate').value;
-    const time = document.getElementById('bookingTime').value;
-    const day = document.getElementById('getDay').value;
-    const userID = currentUser.uid;
-
-    getData(userID, date, time)
-  }
-
-  // Get a data set function call
-  document.getElementById('getDataSet').onclick = function(){
-    const year = document.getElementById('getSetYear').value;
-    const month = document.getElementById('getSetMonth').value;
-    const userID = currentUser.uid;
-
-    getDataSet(userID, year, month);
-  }
-
-  // Delete a single day's data function call
-  this.document.getElementById('delete').onclick = function(){
-    const year = document.getElementById('delYear').value;
-    const month = document.getElementById('delMonth').value;
-    const day = document.getElementById('delDay').value;
-    const userID = currentUser.uid;
-
-    deleteData(userID, year, month, day);
-  };
   }

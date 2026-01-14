@@ -246,13 +246,34 @@ window.onload = function() {
 
   // Get Data Function
   /*
-  document.getElementById('get').onclick = function() {
-    const year = document.getElementById('getYear').value;
-    const month = document.getElementById('getMonth').value;
+   // Get a datum function call
+  document.getElementById('get').onclick = function(){
+    const date = document.getElementById('bookingDate').value;
+    const time = document.getElementById('bookingTime').value;
     const day = document.getElementById('getDay').value;
     const userID = currentUser.uid;
 
-    getData(userID, year, month, day);
+    getData(userID, date, time)
+  }
+
+  // Get a data set function call
+  document.getElementById('getDataSet').onclick = function(){
+    const year = document.getElementById('getSetYear').value;
+    const month = document.getElementById('getSetMonth').value;
+    const userID = currentUser.uid;
+
+    getDataSet(userID, year, month);
+  }
+
+  // Delete a single day's data function call
+  this.document.getElementById('delete').onclick = function(){
+    const year = document.getElementById('delYear').value;
+    const month = document.getElementById('delMonth').value;
+    const day = document.getElementById('delDay').value;
+    const userID = currentUser.uid;
+
+    deleteData(userID, year, month, day);
+  };
   */
 
   // Get user id for the chart
