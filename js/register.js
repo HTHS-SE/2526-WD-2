@@ -68,6 +68,7 @@ document.getElementById("signIn").onclick = function() {
       lastName: lastName
     }).then(() => {
       alert('User created successfully!'); // Alert for successful creation
+      window.location.href = "login.html"; // Redirect to login page
   })
   .catch((error) => {
     alert(error) // User creation failed

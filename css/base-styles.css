@@ -734,6 +734,7 @@ body {
     background-color: #f8f9fa;
     border: 1px solid var(--color-accent);
     border-radius: 5px;
+    width: 60%
 }
 
 .calendar-container {

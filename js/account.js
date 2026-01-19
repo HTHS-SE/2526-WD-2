@@ -78,6 +78,7 @@ function getData(userID, year, month, day, time, museum) {
   get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month + '/' + day + '/' + museum))
     .then((snapshot) => {
       if (snapshot.exists) {
+        alert("Booking found!");
         dateVal.textContent = month + '/' + day + '/' + year;
         timeVal.textContent = time;
         museumVal.textContent = museum;
@@ -87,9 +88,11 @@ function getData(userID, year, month, day, time, museum) {
 
       } else {
         alert("No booking found");
+        bookingTable.classList.add('visually-hidden');
       }
   }).catch((error) => {
     alert('No booking found!');
+    bookingTable.classList.add('visually-hidden');
   });
 }
 
