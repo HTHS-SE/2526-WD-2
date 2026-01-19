@@ -6,7 +6,7 @@
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-  import {getDatabase, ref, set, update, child, get, onValue}
+  import {getDatabase, ref, set, update, child, get, onValue, remove}
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
 
   import { onAuthStateChanged } from
@@ -64,31 +64,64 @@ function SignOutUser() {
   window.location = "index.html";
 }
 
-function getData(userID, year, month, day) {
-  let yearVal = document.getElementById('yearVal');
-  let monthVal = document.getElementById('monthVal');
-  let dayVal = document.getElementById('dayVal');
-  let tempVal = document.getElementById('tempVal');
+function getData(userID, year, month, day, time, museum) {
 
   const dbref = ref(db); // Firebase parameter for getting data
   
+  const dateVal = document.getElementById('dateVal');
+  const timeVal = document.getElementById('timeVal');
+  const partySizeVal = document.getElementById('partySizeVal');
+  const museumVal = document.getElementById('museumVal');
+  const bookingTable = document.getElementById('bookingTable');
+
   // Provide the path through the nodes to the data
-  get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month))
+  get(child(dbref, 'users/' + userID + '/data/' + year + '/' + month + '/' + day + '/' + museum))
     .then((snapshot) => {
       if (snapshot.exists) {
-        yearVal.textContent = year;
-        monthVal.textContent = month;
-        dayVal.textContent = day;
+        dateVal.textContent = month + '/' + day + '/' + year;
+        timeVal.textContent = time;
+        museumVal.textContent = museum;
+        partySizeVal.textContent = snapshot.val()[time];
+        bookingTable.classList.remove('visually-hidden');
 
-        // To get specific values from the provided key: snapshot.val()[key]
-        tempVal.textContent = snapshot.val()[day];
+
       } else {
-        alert("No data found");
+        alert("No booking found");
       }
   }).catch((error) => {
-    alert('Unsuccessful, error: ' + error);
+    alert('No booking found!');
   });
 }
+
+function deleteData(userID, year, month, day, time, museum) {
+  console.log('remove function ran');
+
+  const dataRef = child(ref(db), 'users/' + userID + '/data/' + year + '/' + month + '/' + day + '/' + museum + '/' + time);
+  get(dataRef)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        // Node exists, safe to remove
+        remove(dataRef)
+          .then(() => {
+            alert('Booking removed successfully!');
+            location.reload();
+          })
+          .catch((error) => {
+            console.error(error);
+            alert('Error removing booking.');
+          });
+      } else {
+        // Node doesn't exist
+        alert('No such booking exists.');
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('Error checking booking.');
+    });
+}
+
+
 
 function monthNumberToName(monthNumber) {
   return new Date(2000, monthNumber - 1).toLocaleString("en-US", {
@@ -244,36 +277,30 @@ window.onload = function() {
   document.getElementById("accountHeading").innerText = "Welcome, " + currentUser.firstName;
 
   // Get Data Function
-  /*
    // Get a datum function call
-  document.getElementById('get').onclick = function(){
+
+  document.getElementById('get').onclick = function(e){
+    e.preventDefault();
     const date = document.getElementById('bookingDate').value;
     const time = document.getElementById('bookingTime').value;
-    const day = document.getElementById('getDay').value;
+    const museum = document.getElementById('bookingMuseum').value;
     const userID = currentUser.uid;
 
-    getData(userID, date, time)
+    getData(userID, date.substring(0, 4), date.substring(5, 7), date.substring(8, 10), time, museum)
   }
 
-  // Get a data set function call
-  document.getElementById('getDataSet').onclick = function(){
-    const year = document.getElementById('getSetYear').value;
-    const month = document.getElementById('getSetMonth').value;
-    const userID = currentUser.uid;
 
-    getDataSet(userID, year, month);
-  }
 
   // Delete a single day's data function call
-  this.document.getElementById('delete').onclick = function(){
-    const year = document.getElementById('delYear').value;
-    const month = document.getElementById('delMonth').value;
-    const day = document.getElementById('delDay').value;
+  document.getElementById('delete').onclick = function(e){
+    e.preventDefault();
+    const date = document.getElementById('removeDate').value;
+    const time = document.getElementById('removeTime').value;
+    const museum = document.getElementById('removeMuseum').value;
     const userID = currentUser.uid;
 
-    deleteData(userID, year, month, day);
+    deleteData(userID, date.substring(0, 4), date.substring(5, 7), date.substring(8, 10), time, museum);
   };
-  */
 
   // Get user id for the chart
   const userID = currentUser.uid;

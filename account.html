@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Account</title>
 
-    <!-- Importing necessary Bootstrap libraries-->
+        <!-- Importing necessary Bootstrap libraries-->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -50,8 +50,9 @@
             rel="stylesheet">
 
         <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            defer></script>
 
         <!-- Chart.js -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -62,129 +63,186 @@
         <!-- Magnify Script -->
         <script src="js/magnify.js" defer></script>
 
-
-       
         <!--<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">-->
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
         <script src="js/account.js" type="module" defer></script>
-</head>
-<body>
-    <div class="container-fluid">
-        <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
-            <div class="container">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <!--Navbar-->
+            <nav
+                class="navbar navbar-expand-lg navbar-dark nb-background-color">
+                <div class="container">
 
-                <a href="index.html" class="navbar-brand position-relative">
+                    <a href="index.html" class="navbar-brand position-relative">
 
-                    <!--Website Icon-->
-                    <div class="hover-logo position-absolute">
-                        <img src="img/hover-logo.png" class="website-logo">
+                        <!--Website Icon-->
+                        <div class="hover-logo position-absolute">
+                            <img src="img/hover-logo.png" class="website-logo">
+                        </div>
+                        <div class="default-logo position-absolute">
+                            <img src="img/website-logo.png"
+                                class="website-logo">
+                        </div>
+
+                        <div class="placeholder">
+                            <img src="img/website-logo.png"
+                                class="website-logo">
+                        </div>
+
+                        <!--Homepage Link-->
+                        <a href="index.html"
+                            class="nav-link nbMenuItem"><span>Home</span></a>
+                    </a>
+
+                    <!--Hamburger Menu Button-->
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!--Collapsible navbar menu with custom hover-->
+                    <div class="collapse navbar-collapse" id="navmenu">
+
+                        <!--Links to hamburger menu button-->
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="artists.html"
+                                    class="nav-link nbMenuItem"><span>Artists</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="gallery.html"
+                                    class="nav-link nbMenuItem"><span>Gallery</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="timeline.html"
+                                    class="nav-link nbMenuItem"><span>Timeline</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="booking.html"
+                                    class="nav-link nbMenuItem"><span>Visit</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href id="userLink"
+                                    class="nav-link nbMenuItem"><span
+                                        id="userLinkText">Login</span></a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="default-logo position-absolute">
-                        <img src="img/website-logo.png" class="website-logo">
-                    </div>
-
-                    <div class="placeholder">
-                        <img src="img/website-logo.png" class="website-logo">
-                    </div>
-
-                    <!--Homepage Link-->
-                    <a href="index.html" class="nav-link nbMenuItem"><span>Home</span></a>
-                </a>
-
-                <!--Hamburger Menu Button-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!--Collapsible navbar menu with custom hover-->
-                <div class="collapse navbar-collapse" id="navmenu">
-
-                    <!--Links to hamburger menu button-->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a href="artists.html" class="nav-link nbMenuItem"><span>Artists</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="gallery.html" class="nav-link nbMenuItem"><span>Gallery</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="timeline.html" class="nav-link nbMenuItem"><span>Timeline</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="booking.html" class="nav-link nbMenuItem"><span>Visit</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" id ="userLink" class="nav-link nbMenuItem"><span id="userLinkText">Login</span></a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-    </nav>
+            </nav>
 
-    <section class="account-section py-5">
-        <div class="container">
-            <header class="fw-bolder" id="accountHeading">Account</header>
-        </div>
-        <hr><br><br>
-        <div class="container">
-            <h2 class="subheader">Confirm My Booking</h2>
-            <p>Enter in the date and time to check your booking status:</p>
-            <form>
-                <label for="bookingDate">Booking Date:</label>
-                <input type="date" id="bookingDate" class="form-control mb-3 w-25">
-                <label for="bookingTime">Booking Time:</label>
-                <input type="time" id="bookingTime" class="form-control mb-3 w-25">
-                <button type="submit" class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton">Check Booking</button>
-            </form>
-            <table class="table visually-hidden">
-                <thead>
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Museum</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Party Size</th>
-                    </tr>
-                </thead>
-                <tbody id ="tbody">
-                    <tr>
-                        <td><p id ="dateVal"></p></td>
-                        <td><p id ="museumVal"></td>
-                        <td><p id ="timeVal"></td>
-                        <td><p id ="partySizeVal"></td>
-                    </tr>
-                </tbody>
-          </table>
-        </div>
-        <br><br>
-        <div class="container">
-            <h2 class="subheader">Remove a Booking</h2>
-            <p>Want to remove a booking? Please provide the details below:</p>
-            <form>
-                <label for="removeDate">Booking Date:</label>
-                <input type="date" id="removeDate" class="form-control mb-3 w-25">
-                <label for="removeTime">Booking Time:</label>
-                <input type="time" id="removeTime" class="form-control mb-3 w-25">
-                <button type="submit" class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton">Remove Booking</button>
-            </form>
-        </div>
-        <div class="container">
-            <h2 class="subheader">My Booking Stats</h2>
-            <canvas id="bookingMonths" class="accountChart"></canvas>
-            <canvas id="bookingMuseums" class="accountChart"></canvas>
-        </div>
-        <div class="container d-flex flex-column align-items-center">
-            <h2 class="subheader">My Upcoming Events</h2>
-        </div>
-        <div class="m-4 p-3" id="calendar"></div>
-    </section>
-    <footer class="footer bg-black p-5 text-white text-start position-relative">
-        <div class="container">
-            <p class="mb-0 lead footer-text">&copy; 2025 An Overview of Impressionism. Contact Us: 908-xxx-xxxx
-                    randomemail@gmail.com <em>This is a fictional website. Do not try and contact us.</em>
-            </p>
-            <a href="#" class="text-white position-absolute top-0 bottom-0 end-0 p-5 rotation-180 d-flex align-items-center justify-content-center h-100"><i class="bi bi-arrow-down-circle accent-color fs-2"></i></a>
-        </div>
-    </footer>
-</body>
-</html>
+            <section class="account-section py-5">
+                <div class="container">
+                    <header class="fw-bolder"
+                        id="accountHeading">Account</header>
+                </div>
+                <hr><br><br>
+                <div class="container">
+                    <h2 class="subheader">Confirm My Booking</h2>
+                    <p>Enter in the date and time to check your booking
+                        status:</p>
+                    <form>
+                        <label for="bookingDate" class="form-label">Booking Date:</label>
+                        <input type="date" id="bookingDate"
+                            class="form-control mb-3 w-25">
+                        <label for="bookingTime" class="form-label">Booking Time:</label>
+                        <input type="time" id="bookingTime"
+                            class="form-control mb-3 w-25">
+                        <label for="museum" class="form-label">Museum:</label>
+                        <select class="form-select mb-3 w-25"
+                            aria-label="Default select example" id="bookingMuseum">
+                            <option selected>Museum Name</option>
+                            <option value="Musée d'Orsay">Musée d'Orsay</option>
+                            <option value="Musée Marmottan Monet">Musée
+                                Marmottan Monet</option>
+                            <option value="The Metropolitan Museum of Art">The
+                                Metropolitan Museum of Art</option>
+                            <option value="Art Institute of Chicago">Art
+                                Institute of Chicago</option>
+                        </select>
+                        <button type="submit" id="get"
+                            class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton">Check
+                            Booking</button>
+                    </form>
+                    <table class="table visually-hidden" id="bookingTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Museum</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Party Size</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <tr>
+                                <td><p id="dateVal"></p></td>
+                                <td><p id="museumVal"></td>
+                                    <td><p id="timeVal"></td>
+                                        <td><p id="partySizeVal"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br><br>
+                            <div class="container">
+                                <h2 class="subheader">Remove a Booking</h2>
+                                <p>Want to remove a booking? Please provide the
+                                    details below:</p>
+                                <form>
+                                    <label for="removeDate">Booking
+                                        Date:</label>
+                                    <input type="date" id="removeDate"
+                                        class="form-control mb-3 w-25">
+                                    <label for="removeTime">Booking
+                                        Time:</label>
+                                    <input type="time" id="removeTime"
+                                        class="form-control mb-3 w-25">
+                                    <label for="museum" class="form-label">Museum:</label>
+                        <select class="form-select mb-3 w-25"
+                            aria-label="Default select example" id="removeMuseum">
+                            <option selected>Museum Name</option>
+                            <option value="Musée d'Orsay">Musée d'Orsay</option>
+                            <option value="Musée Marmottan Monet">Musée
+                                Marmottan Monet</option>
+                            <option value="The Metropolitan Museum of Art">The
+                                Metropolitan Museum of Art</option>
+                            <option value="Art Institute of Chicago">Art
+                                Institute of Chicago</option>
+                        </select>
+                                    <button type="submit"
+                                        class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton" id="delete">Remove
+                                        Booking</button>
+                                </form>
+                            </div>
+                            <div class="container">
+                                <h2 class="subheader">My Booking Stats</h2>
+                                <canvas id="bookingMonths"
+                                    class="accountChart"></canvas>
+                                <canvas id="bookingMuseums"
+                                    class="accountChart"></canvas>
+                            </div>
+                            <div
+                                class="container d-flex flex-column align-items-center">
+                                <h2 class="subheader">My Upcoming Events</h2>
+                            </div>
+                            <div class="m-4 p-3" id="calendar"></div>
+                        </section>
+                        <footer
+                            class="footer bg-black p-5 text-white text-start position-relative">
+                            <div class="container">
+                                <p class="mb-0 lead footer-text">&copy; 2025 An
+                                    Overview of Impressionism. Contact Us:
+                                    908-xxx-xxxx
+                                    randomemail@gmail.com <em>This is a
+                                        fictional website. Do not try and
+                                        contact us.</em>
+                                </p>
+                                <a href="#"
+                                    class="text-white position-absolute top-0 bottom-0 end-0 p-5 rotation-180 d-flex align-items-center justify-content-center h-100"><i
+                                        class="bi bi-arrow-down-circle accent-color fs-2"></i></a>
+                            </div>
+                        </footer>
+                    </body>
+                </html>
