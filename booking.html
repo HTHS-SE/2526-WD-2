@@ -57,7 +57,7 @@
         <script type="module" src="js/booking.js" defer></script>  <!-- Firebase requires type = "module" -->
 
         
-        <script src="js/navBarUpdate.js" type="module" defer></script>
+        <script src="js/booking.js" type="module" defer></script>
 
     </head>
     <body>
@@ -134,10 +134,12 @@
             </div>
 
             <!-- Jump to Booking -->
+             <!--
             <div class="booking-goto">
                 <p>Book a visit</p>
                 <p>Don't have an account? Register Now</p>
             </div>
+            -->
 
             <!-- Museum locations and hours-->
             <section class="museums-location">
@@ -445,85 +447,38 @@
                     </div>
                 </div>
             </section>
-
+            <br><br><br><hr>
             <!-- Booking visit (user input)-->
             <section class="">
                 <div class="container">
-                    <br><header>Book Now!</header><br>
-                    <h2 class="subheader">Enter in the details below:</h2>
+                    <br><header class="text-center">Book Now!</header><br>
+                    <h2 class="subheader mb-5 text-center">Enter in the details below:</h2>
 
                     <div class="container dataForm mb-5">
                         <form>
-                            <select class="form-select mb-3" aria-label="Default select example" id="museum">
-                                <option selected>Museum Name</option>
-                                <option value="Musée d'Orsay">Musée d'Orsay</option>
-                                <option value="Musée Marmottan Monet">Musée Marmottan Monet</option>
-                                <option value="The Metropolitan Museum of Art">The Metropolitan Museum of Art</option>
-                                <option value="Art Institute of Chicago">Art Institute of Chicago</option>
-                            </select>
-                            <!--
-                            <select class="form-select mb-3" aria-label="Default select example" id="year">
-                                <option selected>Trial (Year)</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                            </select>
-                        -->
-                            <input type="date" class="form-control mb-3" id="date">
-                            <input type="time" class="form-control mb-3" id="time">
-                            <!--
-                            <select class="form-select mb-3" aria-label="Default select example" id="month">
-                                <option selected>Month</option>
-                                <option value="Jan">January</option>
-                                <option value="Feb">February</option>
-                                <option value="Mar">March</option>
-                                <option value="Apr">April</option>
-                                <option value="May">May</option>
-                                <option value="Jun">June</option>
-                                <option value="Jul">July</option>
-                                <option value="Aug">August</option>
-                                <option value="Sep">September</option>
-                                <option value="Oct">October</option>
-                                <option value="Nov">November</option>
-                                <option value="Dec">December</option>
-                            </select>
-                            <select class="form-select mb-3" aria-label="Default select example" id="day">
-                                <option selected>Day</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                            -->
-                            <label for="range4" class="form-label">Number of people in your party</label>
-                            <input type="range" class="form-range" min="0" max="16" value="50" id="party">
-                            <output for="range4" id="rangeValue" aria-hidden="true"></output>
+                            <div class="input-row">
+                                <label for="museum" class="form-label">Museum:</label>
+                                <select class="form-select mb-3 bookForm" aria-label="Default select example" id="museum">
+                                    <option selected>Museum Name</option>
+                                    <option value="Musée d'Orsay">Musée d'Orsay</option>
+                                    <option value="Musée Marmottan Monet">Musée Marmottan Monet</option>
+                                    <option value="The Metropolitan Museum of Art">The Metropolitan Museum of Art</option>
+                                    <option value="Art Institute of Chicago">Art Institute of Chicago</option>
+                                </select>
+                            </div>
+                            <div class="input-row">
+                                <label for="date" class="form-label">Date:</label>
+                                <input type="date" class="form-control mb-3 bookForm" id="date">
+                            </div>
+                            <div class="input-row">
+                                <label for="time" class="form-label">Time:</label>
+                                <input type="time" class="form-control mb-3 bookForm" id="time">
+                            </div>
+                            <div class="input-row">
+                                <label for="range4" class="form-label">Party Size:</label>
+                                <output for="range4" id="rangeValue" class="form-label" aria-hidden="true"></output>
+                                <input type="range" class="form-range bookRange" min="1" max="16" value="1" id="party">
+                            </div>
                             <script>
                                 // This is an example script, please modify as needed
                                 const rangeInput = document.getElementById('party');
@@ -536,8 +491,7 @@
                                     rangeOutput.textContent = this.value;
                                 });
                             </script>
-                            <button type = "button" id="set" name="set" class="btn btn-outline-primary mb-3 w-100">Set</button>
-                            <button type = "button" id="update" name="update" class="btn btn-outline-secondary mb-3 w-100">Update</button>
+                            <button type = "button" id="update" name="set" class="btn btn-outline-primary btn-primary input-row public-sans mb-3 mt-5 background-color signForm w-100">Book!</button>
                         </form>       
                     </div>
                 </div><br>

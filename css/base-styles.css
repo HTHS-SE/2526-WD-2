@@ -334,6 +334,7 @@ body {
 
 .btn-primary {
     font-family: "Playfair Display", serif;
+    color: white;
 }
 
 .artist-button {
@@ -671,7 +672,42 @@ body {
     border-radius: 15px;
 }
 
-/* */
+.bookForm {
+   font-family: 'Public Sans', sans-serif;
+    max-width: 600px;
+    padding: 20px;
+    font-size: 1.5rem;
+    margin: 10px auto;
+}
+
+.bookRange {
+    font-size: 1.5rem;
+    font-family: 'Public Sans', sans-serif;
+    max-width: 600px;
+    display: block;
+    margin: 10px auto;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.input-row label {
+    white-space: nowrap;
+}
+
+.form-label {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+#rangeValue {
+    font-weight: bold;
+    text-decoration: underline;
+}
 
 .submitRegistration {
     display: flex;
