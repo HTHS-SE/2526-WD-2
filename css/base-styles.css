@@ -650,16 +650,45 @@ body {
     font-weight: bold;
 }
 
-.carousel-control-prev,
+.carousel-control-prev
 .carousel-control-next {
-  color: #ff5757; /* icon color */
-  text-shadow:
-    0 0 10px #fff,
-    0 0 14px #fff,
-    0 0 16px #fff;
-  height: 6rem;
-  width: 6rem;
+  display: flex !important;
+  align-items: center !important;
 }
+
+.carousel-control-prev {
+    justify-content: start;
+    margin-left: 1rem;
+}
+
+.carousel-control-next {
+    justify-content: end;
+    margin-right: 1rem;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff5757' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff5757' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708L9.293 7 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  position: relative;
+  height: 5rem;
+  width: 5rem;
+  background-size: 100% 100%;
+  filter:
+    drop-shadow(-1px 0 0 pink)
+    drop-shadow(1px 0 0 pink)
+    drop-shadow(0 -1px 0 pink)
+    drop-shadow(0 1px 0 pink);
+}
+
+
+
 
 .booking-goto {
     width: 1000px;
