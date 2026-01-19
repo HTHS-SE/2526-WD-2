@@ -283,7 +283,7 @@ window.onload = function() {
    // Get a datum function call
 
   document.getElementById('get').onclick = function(e){
-    e.preventDefault();
+    e.preventDefault(); // Prevents page from reloading after the button is pressed
     const date = document.getElementById('bookingDate').value;
     const time = document.getElementById('bookingTime').value;
     const museum = document.getElementById('bookingMuseum').value;

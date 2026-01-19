@@ -130,6 +130,7 @@ function magnifyByClass(imgClass, zoom) {
   });
 }
 
+/*
 function setData(userID, museum, date, time, party){
   // Must use brackets around variable name to use it as a key
   console.log("Set data ran");
@@ -145,6 +146,8 @@ function setData(userID, museum, date, time, party){
   });
 }
 
+*/
+
 // -------------------------Update data in database --------------------------
 function updateData(userID, museum, date, time, party){
   // Must use brackets around variable name to use it as a key
@@ -156,7 +159,7 @@ function updateData(userID, museum, date, time, party){
     alert("Visit booked successfully!");
   })
   .catch((error) => {
-    alert("There was an error. Error: " + error)
+    alert("Please input a date and time.");
   });
 }
 
@@ -212,28 +215,28 @@ function checkValidDateAndTime(museum, year, month, day, time) {
         }
       }
 
-    if (isSpecificDay(inputDate, 0, 1) || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26) || isFirstMondayOfMay(inputDate)) {
+    if (inputDate.getDay() === 3 || isSpecificDay(inputDate, 0, 1) || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26) || isFirstMondayOfMay(inputDate)) {
       alert(`${museum} is not open on the day you chose.`)
       return false;
     }
-  } else {
+  } else if (museum === "Art Institute of Chicago") {
     if (inputDate.getDay() === 4) {
       if (!("11:00" < time && time < "20:00")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
-      } else {
-        if (!("11:00" < time && time < "17:00")) {
-          alert(`${museum} is not open at the time you chose.`)
-          return false
-        }
       }
-      if (isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26) || inputDate.getDay() === 2) {
+    } else {
+      if (!("11:00" < time && time < "17:00")) {
+        alert(`${museum} is not open at the time you chose.`)
+        return false
+      }
+    }
+      if (inputDate.getDay() === 2 || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26)) {
         alert(`${museum} is not open on the day you chose.`)
         return false;
       }
-  }
-  return true;
 }
+  return true;
 }
 
 function isSpecificDay(date, month, day) {
