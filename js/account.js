@@ -242,6 +242,7 @@ function listenToEvents(user, year, callback) {
                 title: locationSnap.key,
                 start: startDate,
                 allDay: false,
+                className: "calendarEvent",
                 extendedProps: details
               });
             });
@@ -319,6 +320,7 @@ window.onload = function() {
 
     calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: "dayGridMonth",
+      dayMaxEventRows: true,
       events: []
     });
 

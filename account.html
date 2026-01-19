@@ -58,7 +58,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <!-- Basic Functions Script -->
-        <!--<script src="js/basic-functions.js" defer></script>-->
+        <script src="js/basic-functions.js" defer></script>
 
         <!-- Magnify Script -->
         <script src="js/magnify.js" defer></script>
@@ -133,6 +133,11 @@
                 </div>
             </nav>
 
+            <!-- Scroll Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar-scroll" id="scrollProgressBar"></div>
+            </div>
+
             <section class="account-section py-5">
                 <div class="container">
                     <header class="fw-bolder"
@@ -140,19 +145,22 @@
                 </div>
                 <hr><br><br>
                 <div class="container">
-                    <h2 class="subheader">Confirm My Booking</h2>
-                    <p>Enter in the date and time to check your booking
+                    <h2 class="accountSubheader">Confirm My Booking</h2>
+                    <p class="accountDescription">Enter in the date, time, and museum to check your booking
                         status:</p>
                     <form>
-                        <label for="bookingDate" class="form-label">Booking Date:</label>
+                        <label for="bookingDate" class="form-label">Booking
+                            Date:</label>
                         <input type="date" id="bookingDate"
-                            class="form-control mb-3 w-25">
-                        <label for="bookingTime" class="form-label">Booking Time:</label>
+                            class="form-control mb-3 w-25 accountForm">
+                        <label for="bookingTime" class="form-label">Booking
+                            Time:</label>
                         <input type="time" id="bookingTime"
-                            class="form-control mb-3 w-25">
+                            class="form-control mb-3 w-25 accountForm">
                         <label for="museum" class="form-label">Museum:</label>
-                        <select class="form-select mb-3 w-25"
-                            aria-label="Default select example" id="bookingMuseum">
+                        <select class="form-select mb-3 w-25 accountForm"
+                            aria-label="Default select example"
+                            id="bookingMuseum">
                             <option selected>Museum Name</option>
                             <option value="Musée d'Orsay">Musée d'Orsay</option>
                             <option value="Musée Marmottan Monet">Musée
@@ -187,37 +195,46 @@
                             </div>
                             <br><br>
                             <div class="container">
-                                <h2 class="subheader">Remove a Booking</h2>
-                                <p>Want to remove a booking? Please provide the
+                                <h2 class="accountSubheader">Remove a Booking</h2>
+                                <p class="accountDescription">Want to remove a booking? Please provide the
                                     details below:</p>
                                 <form>
-                                    <label for="removeDate">Booking
+                                    <label for="removeDate" class="form-label">Booking
                                         Date:</label>
                                     <input type="date" id="removeDate"
-                                        class="form-control mb-3 w-25">
-                                    <label for="removeTime">Booking
+                                        class="form-control mb-3 w-25 accountForm">
+                                    <label for="removeTime" class="form-label">Booking
                                         Time:</label>
                                     <input type="time" id="removeTime"
-                                        class="form-control mb-3 w-25">
-                                    <label for="museum" class="form-label">Museum:</label>
-                        <select class="form-select mb-3 w-25"
-                            aria-label="Default select example" id="removeMuseum">
-                            <option selected>Museum Name</option>
-                            <option value="Musée d'Orsay">Musée d'Orsay</option>
-                            <option value="Musée Marmottan Monet">Musée
-                                Marmottan Monet</option>
-                            <option value="The Metropolitan Museum of Art">The
-                                Metropolitan Museum of Art</option>
-                            <option value="Art Institute of Chicago">Art
-                                Institute of Chicago</option>
-                        </select>
+                                        class="form-control mb-3 w-25 accountForm">
+                                    <label for="museum"
+                                        class="form-label">Museum:</label>
+                                    <select
+                                        class="form-select mb-3 w-25 accountForm"
+                                        aria-label="Default select example"
+                                        id="removeMuseum">
+                                        <option selected>Museum Name</option>
+                                        <option value="Musée d'Orsay">Musée
+                                            d'Orsay</option>
+                                        <option
+                                            value="Musée Marmottan Monet">Musée
+                                            Marmottan Monet</option>
+                                        <option
+                                            value="The Metropolitan Museum of Art">The
+                                            Metropolitan Museum of Art</option>
+                                        <option
+                                            value="Art Institute of Chicago">Art
+                                            Institute of Chicago</option>
+                                    </select>
                                     <button type="submit"
-                                        class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton" id="delete">Remove
+                                        class="btn btn-outline-primary btn-primary public-sans mb-3 background-color rounded accountButton"
+                                        id="delete">Remove
                                         Booking</button>
                                 </form>
                             </div>
+                            <br><br><hr>
                             <div class="container">
-                                <h2 class="subheader">My Booking Stats</h2>
+                                <header>My Booking Stats:</header>
                                 <canvas id="bookingMonths"
                                     class="accountChart"></canvas>
                                 <canvas id="bookingMuseums"
@@ -225,9 +242,11 @@
                             </div>
                             <div
                                 class="container d-flex flex-column align-items-center">
-                                <h2 class="subheader">My Upcoming Events</h2>
+                                <header>My Upcoming Events</header>
                             </div>
-                            <div class="m-4 p-3" id="calendar"></div>
+                            <div class="calendar-container">
+                                <div class="m-4 p-3 w-50" id="calendar"></div>
+                            </div>
                         </section>
                         <footer
                             class="footer bg-black p-5 text-white text-start position-relative">

@@ -736,11 +736,56 @@ body {
     border-radius: 5px;
 }
 
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fc .calendarEvent {
+    height: auto !important;
+    line-height: 1.2em;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+.fc .calendarEvent .fc-event-title {
+  white-space: normal !important;
+}
+
+
+.fc .calendarEvent .fc-event-time {
+  white-space: normal !important;
+  display: block;
+  text-overflow: clip !important;                   
+}
+
 .accountButton {
     font-family: 'Public Sans', sans-serif;
+    font-size: 1.5rem;
     color: #ffffff;
 }
 
 .accountChart {
     max-height: 500px;
+}
+
+.accountForm {
+    font-family: 'Public Sans', sans-serif;
+    max-width: 600px;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.accountDescription {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+.accountSubheader {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-decoration: underline;
 }
