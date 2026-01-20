@@ -1,5 +1,8 @@
-// ----------------- Page Loaded After User Sign-in -------------------------//
-// ----------------- Firebase Setup & Initialization ------------------------//
+/* File Name: booking.js
+   Coded By: Timothey Saks
+   Description: This file handles all of the functions on the booking page. Specifically, this adds data to the FRD based on user inputs.
+*/
+
 // ----------------- Firebase Setup & Initialization ------------------------//
 // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
@@ -8,12 +11,6 @@
 
   import {getDatabase, ref, set, update, child, get}
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
-
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -26,7 +23,6 @@
     appId: "1:31083722430:web:87e89224c22a69793450ef"
     };
 
-  // Initialize Firebase
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -40,13 +36,9 @@
 
 
 
-                              // Initialize currentUser to null
-
-// ----------------------- Get User's Name'Name ------------------------------
 function getUsername() {
   // Grab value for the 'keep logged in switch'
   let keepLoggedIn = localStorage.getItem("keepLoggedIn");
-  console.log('Keep logged in value:', keepLoggedIn);
   // Grab user information passed from signIn.js
   if (keepLoggedIn == 'yes') {
     console.log('Getting user from local storage');
@@ -58,77 +50,8 @@ function getUsername() {
 }
 
 
-// Magnify Function
-function magnifyByClass(imgClass, zoom) {
-  // Select all images with the given class (e.g., ".magnifiable")
-  const imgs = document.querySelectorAll(`.${imgClass}`);
 
-  imgs.forEach(img => {
-    const glass = document.createElement("DIV");
-    glass.classList.add("img-magnifier-glass");
-
-    // Insert the magnifier before the image
-    img.parentElement.insertBefore(glass, img);
-
-    // Set up magnifier background
-    glass.style.backgroundImage = `url('${img.src}')`;
-    glass.style.backgroundRepeat = "no-repeat";
-    glass.style.backgroundSize = `${img.width * zoom}px ${img.height * zoom}px`;
-
-    const bw = 3;
-    const w = glass.offsetWidth / 2;
-    const h = glass.offsetHeight / 2;
-
-    img.addEventListener("mouseenter", () => {
-      glass.style.opacity = "1";
-    });
-
-    img.addEventListener("mouseleave", () => {
-      glass.style.opacity = "0";
-    });
-
-    window.addEventListener("resize", () => {
-      imgs.forEach(img => {
-        const glass = img.previousElementSibling; // assuming glass is inserted before img
-        if (glass) {
-          glass.style.backgroundSize = `${img.offsetWidth * zoom}px ${img.offsetHeight * zoom}px`;
-        }
-      });
-    });
-
-    // Mouse and touch events
-    ["mousemove", "touchmove"].forEach(evt => {
-      glass.addEventListener(evt, moveMagnifier);
-      img.addEventListener(evt, moveMagnifier);
-    });
-
-    function moveMagnifier(e) {
-      e.preventDefault();
-      const pos = getCursorPos(e);
-      let x = pos.x;
-      let y = pos.y;
-
-      // Prevent magnifier from going outside image bounds
-      if (x > img.width - w / zoom) x = img.width - w / zoom;
-      if (x < w / zoom) x = w / zoom;
-      if (y > img.height - h / zoom) y = img.height - h / zoom;
-      if (y < h / zoom) y = h / zoom;
-
-      // Move magnifier and update background position
-      glass.style.left = `${x - w}px`;
-      glass.style.top = `${y - h}px`;
-      glass.style.backgroundPosition = `-${(x * zoom - w + bw)}px -${(y * zoom - h + bw)}px`;
-    }
-
-    function getCursorPos(e) {
-      e = e || window.event;
-      const rect = img.getBoundingClientRect();
-      const x = e.pageX - rect.left - window.pageXOffset;
-      const y = e.pageY - rect.top - window.pageYOffset;
-      return { x, y };
-    }
-  });
-}
+/* The set function is here in case it's needed, but it's not currently used in the code. */
 
 /*
 function setData(userID, museum, date, time, party){
@@ -149,88 +72,107 @@ function setData(userID, museum, date, time, party){
 */
 
 // -------------------------Update data in database --------------------------
+// Note: update was used instead of set in order to prevent deleting existing data from the FRD
 function updateData(userID, museum, date, time, party){
-  // Must use brackets around variable name to use it as a key
-  // Appends data to the month instead of wiping the month's information (setData)
+  // Go through the nodes in order to set a value
   update(ref(db, 'users/' + userID + '/data/' + date.substring(0, 4) + '/' + date.substring(5, 7) + '/' + date.substring(8, 10) + '/' + museum),{
     [time]: party
   })
   .then(() => {
+    // If the update is successful, alert the user
     alert("Visit booked successfully!");
   })
   .catch((error) => {
+    // This catch will run if the user fails to put in a date and time value. If this happens, it will alert the user to put in a value.
     alert("Please input a date and time.");
   });
 }
 
+// This function checks if the input date and time are valid for the selected museum (i.e. if the museum is open at the chosen time/day)
+// Note: The date object was utilized a lot in this function. Days and months are zero-indexed (0 = Sunday & 0 = January) 
 function checkValidDateAndTime(museum, year, month, day, time) {
+  
+  // Get the current date and the date inputted ad compare them. Alerts the user if they put in a date that's in the past.
   const currentDate = new Date();
   const inputDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
   if (inputDate < currentDate) {
     alert("Please input a valid date in the future.");
     return false;
   }
+
+  // Checks opening hours for each museum
   if (museum === "Musée d'Orsay") {
+    // On Thursdays, the museum is open later so the hours are adjusted
     if (inputDate.getDay() === 4) {
       if (!("09:30" < time && time < "21:45")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
       }
+    // On every other day, the museum is open from 9:30 AM to 6:00 PM
     } else {
       if (!("09:30" < time && time < "18:00")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
       }
     }
-    if (isSpecificDay(inputDate, 3, 1) || isSpecificDay(inputDate, 11, 25) || inputDate.getDay() === 1) {
+    // Checks all the days the museum is closed. (May 1st, Christmas, and Mondays)
+    if (isSpecificDay(inputDate, 4, 1) || isSpecificDay(inputDate, 11, 25) || inputDate.getDay() === 1) {
       alert(`${museum} is not open on the day you chose.`)
       return false;
     }
   } else if (museum === "Musée Marmottan Monet") {
+    // On Thursdays, the museum is open later so the hours are adjusted
     if (inputDate.getDay() === 4) {
       if (!("10:00" < time && time < "21:00")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
       }
+    // On every other day, the museum is open from 10:00 AM to 6:00 PM
     } else {
       if (!("10:00" < time && time < "18:00")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
       }
     }
+    // Checks all the days the museum is closed. (May 1st, Christmas, January 1st, and Mondays)
     if (inputDate.getDay() === 1 || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 0, 1) || isSpecificDay(inputDate, 4, 1)) {
       alert(`${museum} is not open on the day you chose.`)
       return false;
     }
   } else if (museum === "The Metropolitan Museum of Art") {
+    // The museum opens later on Fridays and Saturdays
     if (inputDate.getDay() === 5 || inputDate.getDay() === 6) {
       if (!("10:00" < time && "21:00" < time)) {
         alert(`${museum} is not open at the time you chose.`)
         return false;
       }
+    // On every other day, the museum is open from 10:00 AM to 5:00 PM
       } else {
         if (!("10:00" < time && time < "17:00")) {
           alert(`${museum} is not open at the time you chose.`)
           return false
         }
       }
-
+    // Checks all the day the museum is closed. Wednesdays, January 1st, Christmas, Thanksgiving, and the first Monday of May
     if (inputDate.getDay() === 3 || isSpecificDay(inputDate, 0, 1) || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26) || isFirstMondayOfMay(inputDate)) {
       alert(`${museum} is not open on the day you chose.`)
       return false;
     }
   } else if (museum === "Art Institute of Chicago") {
+    // Museum is open later on Thursdays
     if (inputDate.getDay() === 4) {
       if (!("11:00" < time && time < "20:00")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
       }
+    // Every other day, the museum is open from 11:00 AM to 6:00 PM
     } else {
       if (!("11:00" < time && time < "17:00")) {
         alert(`${museum} is not open at the time you chose.`)
         return false
       }
     }
+    // Checks all the days the museum is closed. Tuesdays, Christmas, and Thanksgiving
       if (inputDate.getDay() === 2 || isSpecificDay(inputDate, 11, 25) || isSpecificDay(inputDate, 10, 26)) {
         alert(`${museum} is not open on the day you chose.`)
         return false;
@@ -239,10 +181,12 @@ function checkValidDateAndTime(museum, year, month, day, time) {
   return true;
 }
 
+// Helper function to checkValidDateAndTime that compares two days to see if they're the same
 function isSpecificDay(date, month, day) {
   return date.getMonth() === month && date.getDate() === day;
 }
 
+// Helper function to checkValidDateAndTime that checks if a date is the first Monday of May
 function isFirstMondayOfMay(date) {
   const d = new Date(date); // allow passing string or Date
 
@@ -254,9 +198,9 @@ function isFirstMondayOfMay(date) {
 }
 
 
-// ---------------------// Get reference values -----------------------------
 
-let userLink = document.getElementById('userLink');   // Username for navbar
+// Get the userLink element on the nav bar
+let userLink = document.getElementById('userLink');
 let userLinkText = document.getElementById('userLinkText');
 let currentUser = null; 
 
@@ -264,43 +208,43 @@ let currentUser = null;
 window.onload = function() {
   console.log("Nav bar update onload function ran");
 
-  // ------------------------- Set Welcome Message -------------------------
+
   getUsername();  // Get current user's first name
+
+  // If the user isn't logged it, the nav bar will take them to the sign in page.
   if (currentUser == null) {
     userLinkText.innerText = "Login";
     userLink.href = "signIn.html";
-  } else {
-    //console.log('Else statement executed');
+  } 
+  // If they are logged in, update the nav bar to take them to the Account page.
+    else {
     userLinkText.innerText = "Account";
     userLink.href = "account.html";
     }
 
-  
-  // Run magnify function
-  magnifyByClass("timeline-img", 2);
-  magnifyByClass("index-img", 1.5);
 
-  console.log("On load function ran");
-  // Set and Update Reservation Data in FRD
-  // Set (Insert) data function call
+
 
   // Update data function call
   document.getElementById('update').onclick = function(){
+    // Checks if the user is logged in
     if (currentUser != null) {
-        console.log("Set button clicked");
+        // User is logged in, pull all the values
         const museum = document.getElementById('museum').value;
         const party = document.getElementById('party').value;
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
         const userID = currentUser.uid;
+        // If the user didn't select a museum, alert them to put in a valid museum name
         if (museum === "Museum Name") {
             alert("Please input a valid museum name.");
             } else if (checkValidDateAndTime(museum, date.substring(0, 4), date.substring(5, 7), date.substring(8, 10), time) == false) {
-            // Invalid date or time
+            // Checks if there is an invalid date or time
         } else {
             updateData(userID, museum, date, time, party);
         }
     } else {
+    // If the user is not logged in, alert them to sign in or make an account.
         alert("Please log in or make an account to book a trip.");
     }
 

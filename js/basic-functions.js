@@ -1,3 +1,7 @@
+/* File Name: basic-functions.js
+   Coded By: Timothey Saks
+   Description: This file contains very basic functions that are used on every page of the website.
+*/
 
 // Scroll Progress Bar
 window.onscroll = function() {
@@ -17,6 +21,6 @@ const sections = document.querySelectorAll('.fade-section');
                 entry.target.classList.add('visible');
             }
             });
-        }, { threshold: 0.2 }); // 20% of element visible before animation triggers
+        }, { threshold: 0.2 }); // 20% of element visible before animation triggers (can be changed)
 
         sections.forEach(section => observer.observe(section));

@@ -1,4 +1,8 @@
-// This JS file is for registering a new app user ---------------------------//
+/* File Name: register.js
+   Coded By: Timothey Saks
+   Description: This file handles the registration of a new user.
+
+*/
 
 // ----------------- Firebase Setup & Initialization ------------------------//
 // Import the functions you need from the SDKs you need
@@ -8,12 +12,6 @@
 
   import {getDatabase, ref, set, update, child, get}
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
-
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -26,7 +24,6 @@
     appId: "1:31083722430:web:87e89224c22a69793450ef"
     };
 
-  // Initialize Firebase
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -39,7 +36,8 @@
 
 // ---------------- Register New User --------------------------------//
 
-document.getElementById("signIn").onclick = function() {
+// When the register button is clicked
+document.getElementById("register").onclick = function() {
   const firstName = document.getElementById("firstName").value;
   const lastName = document.getElementById("lastName").value;
   const email = document.getElementById("userEmail").value;
@@ -68,7 +66,7 @@ document.getElementById("signIn").onclick = function() {
       lastName: lastName
     }).then(() => {
       alert('User created successfully!'); // Alert for successful creation
-      window.location.href = "login.html"; // Redirect to login page
+      // window.location.href = "signIn.html"; // Redirect to login page
   })
   .catch((error) => {
     alert(error) // User creation failed

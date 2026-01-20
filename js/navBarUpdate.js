@@ -1,5 +1,11 @@
-// ----------------- Page Loaded After User Sign-in -------------------------//
-// ----------------- Firebase Setup & Initialization ------------------------//
+/* File Name: navBarUpdate.js
+   Coded By: Timothey Saks
+   Description: This file handles the updating of the navigation bar based on user authentication status. (logged in vs not logged in)
+   The magnify function is also housed in this file, because it applies to all the pages that need the nav bar update.
+*/
+
+
+
 // ----------------- Firebase Setup & Initialization ------------------------//
 // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
@@ -13,7 +19,6 @@
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -27,8 +32,6 @@
     };
 
   // Initialize Firebase
-
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
   // Initialize Firebase Authentication
@@ -37,10 +40,6 @@
   // Return instance of your app's firebase realtime database (FRD)
   const db = getDatabase(app);
 
-
-
-
-                              // Initialize currentUser to null
 
 // ----------------------- Get User's Name'Name ------------------------------
 function getUsername() {
@@ -130,34 +129,24 @@ function magnifyByClass(imgClass, zoom) {
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// ---------------------// Get reference values -----------------------------
-
-let userLink = document.getElementById('userLink');   // Username for navbar
+// Get the userLink element on the nav bar
+let userLink = document.getElementById('userLink');
 let userLinkText = document.getElementById('userLinkText');
 let currentUser = null; 
 
 // --------------------------- Home Page Loading -----------------------------
 window.onload = function() {
-  console.log("Nav bar update onload function ran");
 
-  // ------------------------- Set Welcome Message -------------------------
+  // Set Welcome Message
   getUsername();  // Get current user's first name
+
+  // If the user is not logged in, set the nav bar link to the sign in page
   if (currentUser == null) {
     userLinkText.innerText = "Login";
     userLink.href = "signIn.html";
-  } else {
-    //console.log('Else statement executed');
+  } 
+  // If the user is logged in, set the nav bar link to the account page
+  else {
     userLinkText.innerText = "Account";
     userLink.href = "account.html";
     }
@@ -166,8 +155,5 @@ window.onload = function() {
   // Run magnify function
   magnifyByClass("timeline-img", 2);
   magnifyByClass("index-img", 1.5);
-
-  console.log("On load function ran");
-
 
   }
