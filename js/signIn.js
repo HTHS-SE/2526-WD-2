@@ -1,4 +1,8 @@
-// ----------------- User Sign-In Page --------------------------------------//
+/* File Name: signIn.js
+   Coded By: Mr. Hanas
+   Description: This file handles the user sign-in process.
+
+*/
 
 // ----------------- Firebase Setup & Initialization ------------------------//
 // Import the functions you need from the SDKs you need
@@ -8,12 +12,6 @@
 
   import {getDatabase, ref, set, update, child, get}
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
-
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -25,8 +23,6 @@
     messagingSenderId: "31083722430",
     appId: "1:31083722430:web:87e89224c22a69793450ef"
     };
-
-  // Initialize Firebase
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -77,13 +73,13 @@ document.getElementById('signIn').onclick = function() {
             });
         })
         .catch((error) => {
-            alert(error);
+            alert("Invalid email or password.");
         })
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        alert("Invalid email or password.");
     })
 }
 

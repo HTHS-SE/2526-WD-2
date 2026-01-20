@@ -1,5 +1,5 @@
 /* File Name: register.js
-   Coded By: Timothey Saks
+   Coded By: Mr. Hanas
    Description: This file handles the registration of a new user.
 
 */
@@ -66,7 +66,7 @@ document.getElementById("register").onclick = function() {
       lastName: lastName
     }).then(() => {
       alert('User created successfully!'); // Alert for successful creation
-      // window.location.href = "signIn.html"; // Redirect to login page
+      window.location.href = "signIn.html"; // Redirect to login page
   })
   .catch((error) => {
     alert(error) // User creation failed
